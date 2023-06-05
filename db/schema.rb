@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_143616) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_05_144007) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_143616) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "stories", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.bigint "chapter_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chapter_id"], name: "index_stories_on_chapter_id"
+    t.index ["user_id"], name: "index_stories_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,4 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_143616) do
   add_foreign_key "chapters", "shrines"
   add_foreign_key "shrine_users", "shrines"
   add_foreign_key "shrine_users", "users"
+  add_foreign_key "stories", "chapters"
+  add_foreign_key "stories", "users"
 end
