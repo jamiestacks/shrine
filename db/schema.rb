@@ -10,9 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_135545) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_05_144141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chapters", force: :cascade do |t|
+    t.string "title"
+    t.date "date_start"
+    t.date "date_end"
+    t.bigint "shrine_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shrine_id"], name: "index_chapters_on_shrine_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "shrine_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shrine_id"], name: "index_messages_on_shrine_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "shrine_users", force: :cascade do |t|
+    t.bigint "shrine_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shrine_id"], name: "index_shrine_users_on_shrine_id"
+    t.index ["user_id"], name: "index_shrine_users_on_user_id"
+  end
+
+  create_table "shrines", force: :cascade do |t|
+    t.string "name"
+    t.date "DOB"
+    t.date "DOD"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.bigint "chapter_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chapter_id"], name: "index_stories_on_chapter_id"
+    t.index ["user_id"], name: "index_stories_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +70,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_135545) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chapters", "shrines"
+  add_foreign_key "messages", "shrines"
+  add_foreign_key "messages", "users"
+  add_foreign_key "shrine_users", "shrines"
+  add_foreign_key "shrine_users", "users"
+  add_foreign_key "stories", "chapters"
+  add_foreign_key "stories", "users"
 end
