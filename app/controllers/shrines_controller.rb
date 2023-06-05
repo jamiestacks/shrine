@@ -1,0 +1,2 @@
+class ShrinesController < ApplicationController
+end
