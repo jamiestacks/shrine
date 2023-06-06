@@ -37,6 +37,6 @@ puts 'Creating shrine'
 main_shrine = Shrine.new(name: "John Smith", dob: "1937-03-11", dod: "2023-06-15", user: main_user)
 
 # Open the image file
-file = File.open("./app/assets/images/johnprofile.jpeg")
-main_shrine.photo.attach(io: file, filename: "johnprofile.jpeg")
+file = File.open("./app/assets/images/johnprofile.jpg")
+main_shrine.photo.attach(io: file, filename: "johnprofile.jpg")
 main_shrine.save!
