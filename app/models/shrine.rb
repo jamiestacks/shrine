@@ -4,5 +4,4 @@ class Shrine < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_one_attached :photo
   belongs_to :user
-
 end
