@@ -1,5 +1,5 @@
 class ChaptersController < ApplicationController
-  before_action :set_shrine, only: %i[new create]
+  before_action :set_shrine, only: %i[index new create]
 
   def index
     @chapters = Chapter.all
@@ -7,12 +7,12 @@ class ChaptersController < ApplicationController
   end
 
   def show
+    @chapter = Chapter.find(params[:id])
     @story = Story.new
   end
 
   def new
     @chapter = Chapter.new
-    # @shrine = Shrine.find(params[:shrine_id])
   end
 
   def create
