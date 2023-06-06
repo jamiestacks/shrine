@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :shrines do
     resources :chapters, only: [:new, :create]
   end
+
+  resources :chapters, only: [:show, :edit, :update] do
+    
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

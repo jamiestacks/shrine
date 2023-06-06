@@ -45,8 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_144141) do
 
   create_table "shrines", force: :cascade do |t|
     t.string "name"
-    t.date "DOB"
-    t.date "DOD"
+    t.date "dob"
+    t.date "dod"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
