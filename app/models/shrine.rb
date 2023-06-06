@@ -3,7 +3,8 @@ class Shrine < ApplicationRecord
   has_many :chapters
   has_many :messages
 
-  validates :name, :dob, presence: true
+  validates :name, presence: true, length: { minimum: 3 }
+  validates :dob, presence: true
   validate :birth_cannot_be_in_the_future
 
   def birth_cannot_be_in_the_future
