@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Shrine
+module MyShrine
   class Application < Rails::Application
     config.generators do |generate|
       generate.assets false

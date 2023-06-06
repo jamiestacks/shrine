@@ -45,10 +45,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_144141) do
 
   create_table "shrines", force: :cascade do |t|
     t.string "name"
-    t.date "DOB"
-    t.date "DOD"
+    t.date "dob"
+    t.date "dod"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shrines_on_user_id"
   end
 
   create_table "stories", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_144141) do
   add_foreign_key "messages", "users"
   add_foreign_key "shrine_users", "shrines"
   add_foreign_key "shrine_users", "users"
+  add_foreign_key "shrines", "users"
   add_foreign_key "stories", "chapters"
   add_foreign_key "stories", "users"
 end
