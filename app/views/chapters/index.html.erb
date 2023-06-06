@@ -1,3 +1,5 @@
+<%= link_to "Create a new Chapter", new_shrine_chapter_path(:shrine_id) %>
+
 <% @chapters.each do |chapter| %>
     <%= chapter.title %>
     <%= chapter.date_start %>
