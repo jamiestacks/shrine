@@ -1,0 +1,12 @@
+<h1>Your Shrines</h1>
+
+<ul>
+  <% @shrines.each do |shrine| %>
+    <%= link_to shrine_path(shrine) do %>
+      <li><%= shrine.name.capitalize %>: <%= shrine.dob %> - <%= shrine.dod %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "Create a Shrine", new_shrine_path %>
+<%= link_to "Join a Shrine", shrines_path %>
