@@ -12,14 +12,14 @@ class ChaptersController < ApplicationController
 
   def new
     @chapter = Chapter.new
-    @shrine = Shrine.where(shrine: @shrine)
+    # @shrine = Shrine.find(params[:shrine_id])
   end
 
   def create
     @chapter = Chapter.new(chapter_params)
     @chapter.shrine = @shrine
     if @chapter.save
-      redirect_to shrine_path
+      redirect_to shrine_chapters_path(@shrine)
     else
       render :new, status: :unprocessable_entity
     end

@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :shrines do
-    resources :chapters, only: [:new, :create]
+    resources :chapters, only: [:index, :new, :create]
     resources :messages, only: [:index, :new, :create]
     resources :shrine_users, only: [:new, :create]
   end
 
-  resources :chapters, only: [:index, :show, :edit, :update] do
+  resources :chapters, only: [:show, :edit, :update] do
     resources :stories, only: [:new, :create]
   end
 
