@@ -4,4 +4,14 @@ class Shrine < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_one_attached :photo
   belongs_to :user
+
+  validates :name, presence: true, length: { minimum: 3 }
+  validates :dob, presence: true
+  validate :birth_cannot_be_in_the_future
+
+  def birth_cannot_be_in_the_future
+    if dob.present? && dob > Date.today
+      errors.add(:dod, "Can't be in the past")
+    end
+  end
 end
