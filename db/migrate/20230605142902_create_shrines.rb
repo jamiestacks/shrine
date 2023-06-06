@@ -4,6 +4,7 @@ class CreateShrines < ActiveRecord::Migration[7.0]
       t.string :name
       t.date :DOB
       t.date :DOD
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
