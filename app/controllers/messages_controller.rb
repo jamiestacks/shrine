@@ -10,7 +10,11 @@ class MessagesController < ApplicationController
     @message.shrine = @shrine
     @message.user = current_user
     if @message.save
-      redirect_to shrine_messages_path(@shrine)
+      ShrineChannel.broadcast_to(
+        @shrine,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
+      head :ok
     else
       render "messages/index", status: :unprocessable_entity
     end
@@ -21,5 +25,4 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content)
   end
-
 end
