@@ -6,7 +6,7 @@
       <div class="carousel-item <%= 'active' if index == 0 %>">
         <div class="d-block w-100">
           <%= image_tag(shrine.photo) %>
-          <h2><%= link_to shrine.name.capitalize, shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></h2>
+          <h2><%= link_to "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}", shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></h2>
           <%= link_to "Edit", edit_shrine_path(shrine) %>
           <%= link_to "Delete", shrine_path(shrine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
