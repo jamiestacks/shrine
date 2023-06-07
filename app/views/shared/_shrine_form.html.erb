@@ -1,6 +1,8 @@
 <%= simple_form_for shrine do |f| %>
-  <%= f.input :name %>
+  <%= f.input :first_name %>
+  <%= f.input :family_name %>
   <%= f.input :dob, as: :date %>
   <%= f.input :dod, as: :date %>
+  <%= f.input :biography, as: :text %>
   <%= f.button :submit %>
 <% end %>
