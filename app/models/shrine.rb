@@ -5,7 +5,8 @@ class Shrine < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
 
-  validates :name, presence: true, length: { minimum: 3 }
+  validates :first_name, presence: true
+  validates :family_name, presence: true
   validates :dob, presence: true
   validate :birth_cannot_be_in_the_future
 
