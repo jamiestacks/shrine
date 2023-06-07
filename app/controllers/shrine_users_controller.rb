@@ -7,6 +7,5 @@ class ShrineUsersController < ApplicationController
   end
 
   def create
-
   end
 end
