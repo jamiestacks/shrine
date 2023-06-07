@@ -1,5 +1,7 @@
 class ShrinesController < ApplicationController
   before_action :set_shrine, only: []
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def index
     @shrines = Shrine.all
@@ -44,6 +46,12 @@ class ShrinesController < ApplicationController
 
   private
 
+  def authorize_user!
+    unless current_user == @story.user || current_user.admin?
+      redirect_to root_path, alert: 'You do not have permission to perform this action.'
+    end
+
+  end
   def set_shrine
     @shrine = Shrine.find(params[:id])
   end
