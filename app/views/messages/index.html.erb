@@ -1,6 +1,6 @@
 <div class="shrine" data-controller="shrine-subscription" data-shrine-subscription-shrine-id-value="<%= @shrine.id %>">
 
-  <h1><%= @shrine.name %>'s Chatroom</h1>
+  <h1><%= @shrine.first_name %>'s Chatroom</h1>
 
   <div data-shrine-subscription-target="messages">
     <% @shrine.messages.each do |message| %>

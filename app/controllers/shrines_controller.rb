@@ -52,11 +52,12 @@ class ShrinesController < ApplicationController
     end
 
   end
+
   def set_shrine
     @shrine = Shrine.find(params[:id])
   end
 
   def shrine_params
-    params.require(:shrine).permit(:name, :dob, :dod)
+    params.require(:shrine).permit(:first_name, :family_name, :dob, :dod)
   end
 end
