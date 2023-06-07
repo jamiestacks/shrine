@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :chapters, only: [:show, :edit, :update] do
-    resources :stories, only: [:new, :create]
+    resources :stories, only: [:create]
   end
 
   resources :stories, only: [:edit, :update, :destroy]
