@@ -2,6 +2,7 @@
 
 <ul>
   <li><%= @shrine.name.capitalize %></li>
+
   <li>Biography</li>
   <li><%= link_to "Timeline", shrine_chapters_path(@shrine) %></li>
   <li><%= link_to "Chatroom", shrine_messages_path(@shrine) %></li>
