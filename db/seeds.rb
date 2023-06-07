@@ -12,14 +12,14 @@ first_names = [
   "John", "Zoe", "Owen", "Hannah", "Jack", "Nora", "Luke", "Lily", "Max", "Jamie", "Hasna", "Eduardo"
 ]
 
-main_user = User.create(name: "Frank", email: "frank123456@hotmail.com", password: "123456")
-
+main_user = User.create(first_name: "Frank", family_name: "Reynolds", email: "frank123456@hotmail.com", password: "123456")
 
 puts 'Creating user db'
 count = 1
 10.times do
   user = User.new(
-    name: first_names.sample,
+    first_name: first_names.sample,
+    family_name: "Test",
     email: "mynameis#{count}@hotmail.com",
     password: "123456"
   )
@@ -34,7 +34,10 @@ puts 'User data base created'
 puts 'Creating shrine'
 
 # Create new instance of Shrine
-main_shrine = Shrine.new(name: "John Smith", dob: "1937-03-11", dod: "2023-06-15", user_id: main_user.id)
+
+bio = "John loved being a test Shrine. It was his dream his whole life, and is honoured to be used in such a way by smart Le Wagon students."
+
+main_shrine = Shrine.new(first_name: "John", family_name: "Smith", dob: "1937-03-11", dod: "2023-06-15", biography: bio, user_id: main_user.id)
 # Open the image file
 file = File.open("./app/assets/images/johnprofile.jpg")
 main_shrine.photo.attach(io: file, filename: "johnprofile.jpg")

@@ -1,8 +1,9 @@
-<h1><%= @shrine.name.capitalize %>'s Shrine</h1>
+<h1><%= @shrine.first_name.capitalize %>'s Shrine</h1>
+
+<h3><%= @shrine.biography %></h3>
 
 <ul>
-  <li><%= @shrine.name.capitalize %></li>
-  <li>Biography</li>
+  <li><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}" %></li>
   <li><%= link_to "Timeline", shrine_chapters_path(@shrine) %></li>
   <li><%= link_to "Chatroom", shrine_messages_path(@shrine) %></li>
   <li><%= link_to "Invite",  new_shrine_shrine_user_path(@shrine)%></li>
