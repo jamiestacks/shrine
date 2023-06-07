@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     resources :shrine_users, only: [:new, :create]
   end
 
-  resources :chapters, only: [:show, :edit, :update] do
-    resources :stories, only: [:create]
+  resources :chapters, only: [:show, :edit, :update, :destroy] do
+    resources :stories, only: [:new, :create]
   end
 
   resources :stories, only: [:edit, :update, :destroy]
