@@ -4,7 +4,6 @@
 
 <ul>
   <li><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}" %></li>
-  <li>Biography</li>
   <li><%= link_to "Timeline", shrine_chapters_path(@shrine) %></li>
   <li><%= link_to "Chatroom", shrine_messages_path(@shrine) %></li>
   <li><%= link_to "Invite",  new_shrine_shrine_user_path(@shrine)%></li>
