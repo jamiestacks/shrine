@@ -1,0 +1,6 @@
+<%= simple_form_for(@chapter) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :date_start %>
+  <%= f.input :date_end %>
+  <%= f.submit "Edit Chapter", class: "btn btn-primary" %>
+<% end %>
