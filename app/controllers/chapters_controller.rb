@@ -4,6 +4,7 @@ class ChaptersController < ApplicationController
 
   def index
     @chapters = Chapter.where(shrine_id: params[:shrine_id])
+    @orderedchapters = @chapters.order(date_start: :asc)
     @chapter = Chapter.new
     @dob = @shrine.dob
     @dod = @shrine.dod
