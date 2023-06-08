@@ -58,6 +58,6 @@ class ShrinesController < ApplicationController
   end
 
   def shrine_params
-    params.require(:shrine).permit(:first_name, :family_name, :dob, :dod)
+    params.require(:shrine).permit(:first_name, :family_name, :photo, :dob, :dod)
   end
 end
