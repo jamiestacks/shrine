@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_110921) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.integer "status", default: 0
     t.index ["shrine_id"], name: "index_shrine_users_on_shrine_id"
     t.index ["user_id"], name: "index_shrine_users_on_user_id"
   end
