@@ -4,5 +4,6 @@
   <%= f.input :dob, label: "Date of Birth", as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :dod, label: "Date of Death", as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :biography, as: :text, label: "A Brief Biography" %>
+  <%= f.input :photo, as: :file, label: "Please add a profile picture" %>
   <%= f.button :submit %>
 <% end %>
