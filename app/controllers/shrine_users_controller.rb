@@ -1,6 +1,6 @@
 class ShrineUsersController < ApplicationController
   def index
-    @invites = ShrineUser.where("user_id = ?", current_user)
+    @invites = ShrineUser.where(user_id: current_user.id, status: "pending")
   end
 
   def new
@@ -21,9 +21,15 @@ class ShrineUsersController < ApplicationController
     end
   end
 
-  # private
+  def update
+    shrine_user = ShrineUser.find(params[:id])
+    shrine_user.update(status: params[:status])
+    redirect_to shrine_path(shrine_user.shrine_id)
+  end
 
-  # def shrine_user_params
-  #   params.require(:shrine_user).permit(:query, :shrine_id)
-  # end
+  private
+
+  def shrine_user_params
+    params.require(:shrine_user).permit(:status, :shrine_id)
+  end
 end
