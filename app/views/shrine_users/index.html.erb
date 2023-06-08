@@ -1,11 +1,22 @@
 <h1>Your invites</h1>
-<% if @invites.count == 00 %>
+<% if @invites.count == 0 %>
   <p>You don't have any pending invitations</p>
   <% else %>
   <% @invites.each do |invite| %>
     <ol><li><%= invite.status %>
     <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch } %>
     <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+    <% if @invite.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@invite.errors.count, "error") %> prohibited this invite from being saved:</h2>
+
+        <ul>
+          <% @invite.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     </li></ol>
   <% end %>
 <% end %>

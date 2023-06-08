@@ -2,7 +2,13 @@ class ShrinesController < ApplicationController
   before_action :set_shrine, only: []
 
   def index
-    @shrines = Shrine.all
+    @invites = ShrineUser.where(user_id: current_user.id, status: "accept")
+    # @shrines = @invites.map(&:shrine) <------ one liner alternative to above
+    @shrines = @invites.map do |invite|
+      invite.shrine
+    end
+    @condition = @invites.count.zero? && Shrine.where(user_id: current_user.id).count.zero?
+    @ownshrines = Shrine.where(user_id: current_user)
   end
 
   def show
