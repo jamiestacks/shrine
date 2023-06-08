@@ -1,0 +1,16 @@
+<div class="shrine" data-controller="shrine-subscription" data-shrine-subscription-shrine-id-value="<%= @shrine.id %>">
+
+  <h1><%= @shrine.first_name %>'s Chatroom</h1>
+
+  <div data-shrine-subscription-target="messages">
+    <% @shrine.messages.each do |message| %>
+      <%= render "message", message: message %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@shrine, @message], html: { data: { action: "turbo:submit-end->shrine-subscription#resetForm" }, class: "d-flex"} do |f| %>
+    <%= f.input :content, label: false, placeholder: "Add your message here", wrapper_html: {class: "flex-grow-1"} %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+
+</div>

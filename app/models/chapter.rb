@@ -1,6 +1,7 @@
 class Chapter < ApplicationRecord
   belongs_to :shrine
   has_many :stories
+  has_one_attached :photo
 
   validates :title, :date_start, :date_end, presence: true
   validate :within_dob_dod
