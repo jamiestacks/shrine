@@ -2,8 +2,12 @@
 
 <%= link_to "Create a new Chapter", new_shrine_chapter_path(@shrine) %>
 
-<% @chapters.each do |chapter| %>
-    <%= link_to "#{chapter.title}", chapter_path(chapter) %>
-    <%= chapter.date_start %>
-    <%= chapter.date_end %>
+<ul>
+<% @orderedchapters.each do |chapter| %>
+    <li>
+      <%= link_to "#{chapter.title}", chapter_path(chapter) %>
+      <%= chapter.date_start %>
+      <%= chapter.date_end %>
+    </li>
 <% end %>
+</ul>
