@@ -1,29 +1,53 @@
-<h1>Your Shrines</h1>
+<div class="cool-title d-flex">
+<h1>Your shrines</h1>
+</div>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
+<div class="swiper">
+  <div class="swiper-wrapper">
     <% @shrines.each_with_index do |shrine, index| %>
-      <div class="carousel-item <%= 'active' if index == 0 %>">
-        <div class="d-block w-100">
-          <%= image_tag(shrine.photo) %>
-          <h2><%= link_to "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}", shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></h2>
+      <div class="card swiper-slide">
+        <% if shrine.photo.attached? %>
+          <%= image_tag shrine.photo, class: "card-img-top", height: 250%>
+        <% else %>
+          <%= image_tag "johnyoung2", class: "card-img-top", height: 250%>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}", shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <%= link_to "Edit", edit_shrine_path(shrine) %>
           <%= link_to "Delete", shrine_path(shrine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
       </div>
     <% end %>
   </div>
-  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <div class="swiper-pagination"></div>
 </div>
-
-
 
 <%= link_to "Create a Shrine", new_shrine_path %>
 <%= link_to "Join a Shrine", shrines_path %>
+
+<script type="module">
+  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
+
+  const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+</script>
