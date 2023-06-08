@@ -1,10 +1,30 @@
-<h1><%= @shrine.first_name.capitalize %>'s Shrine</h1>
-
-<h3><%= @shrine.biography %></h3>
-
-<ul>
-  <li><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}" %></li>
-  <li><%= link_to "Timeline", shrine_chapters_path(@shrine) %></li>
-  <li><%= link_to "Chatroom", shrine_messages_path(@shrine) %></li>
-  <li><%= link_to "Invite",  new_shrine_shrine_user_path(@shrine)%></li>
-</ul>
+<div class = "card-container">
+  <div class = "photocard row">
+    <h2><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}" %></h2>
+    <h4><%= "#{@shrine.dob.year} - #{@shrine.dod.year}" %></h4>
+  </div>
+  <div class = "biocard row">
+    <h4><%="#{@shrine.first_name.capitalize}'s Biography"%></h4>
+    <p><%= @shrine.biography %></p>
+  </div>
+  <a href="<%= shrine_chapters_path(@shrine) %>" class="card-link">
+    <div class = "timelinecard row">
+    <h1>Timeline</h1>
+    </div>
+  </a>
+  <div class="flex-container">
+    <a href="<%= shrine_messages_path(@shrine) %>" class="card-link">
+      <div class = "squarecard flex-item">
+        <h4>Chatroom</h4>
+      </div>
+    </a>
+    <div class = "squarecard flex-item">
+      <h4>Photos</h4>
+    </div>
+  </div>
+  <a href="<%= new_shrine_shrine_user_path(@shrine) %>" class="card-link">
+    <div class = "invitecard row">
+      <h5>Invite</h5>
+    </div>
+  </a>
+</div>
