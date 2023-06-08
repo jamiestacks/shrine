@@ -23,6 +23,10 @@ class ShrinesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    dob = Chapter.new(title: "#{@shrine.first_name}'s first day", date_start: @shrine.dob, date_end: @shrine.dob, shrine_id: @shrine.id)
+    dob.save
+    dod = Chapter.new(title: "#{@shrine.first_name}'s last day", date_start: @shrine.dod, date_end: @shrine.dod, shrine_id: @shrine.id)
+    dod.save
   end
 
   def edit

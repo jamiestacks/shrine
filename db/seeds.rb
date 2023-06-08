@@ -42,3 +42,8 @@ main_shrine = Shrine.new(first_name: "John", family_name: "Smith", dob: "1937-03
 file = File.open("./app/assets/images/johnprofile.jpg")
 main_shrine.photo.attach(io: file, filename: "johnprofile.jpg")
 main_shrine.save!
+
+dob = Chapter.new(title: "John's first day", date_start: "1937-03-11", date_end: "1937-03-11", shrine_id: main_shrine.id)
+dob.save
+dod = Chapter.new(title: "John's last day", date_start: "2023-06-15", date_end: "2023-06-15", shrine_id: main_shrine.id)
+dod.save
