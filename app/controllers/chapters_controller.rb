@@ -3,7 +3,7 @@ class ChaptersController < ApplicationController
   before_action :set_chapter, only: %i[show edit update destroy]
 
   def index
-    @chapters = Chapter.all
+    @chapters = Chapter.where(shrine_id: params[:shrine_id])
     @chapter = Chapter.new
     @dob = @shrine.dob
     @dod = @shrine.dod
