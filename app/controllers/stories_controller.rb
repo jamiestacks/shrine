@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def new
     @story = Story.new
@@ -35,7 +37,13 @@ class StoriesController < ApplicationController
 
   private
 
+  def authorize_user!
+    unless current_user == @story.user || current_user.admin?
+      redirect_to root_path, alert: 'You do not have permission to perform this action.'
+    end
+  end
+
   def story_params
-    params.require(:story).permit(:title, :content)
+    params.require(:story).permit(:title, :content, photos: [])
   end
 end

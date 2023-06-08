@@ -1,5 +1,7 @@
 class ShrinesController < ApplicationController
   before_action :set_shrine, only: []
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def index
     @shrines = Shrine.all
@@ -21,6 +23,10 @@ class ShrinesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    dob = Chapter.new(title: "#{@shrine.first_name}'s first day", date_start: @shrine.dob, date_end: @shrine.dob, shrine_id: @shrine.id)
+    dob.save
+    dod = Chapter.new(title: "#{@shrine.first_name}'s last day", date_start: @shrine.dod, date_end: @shrine.dod, shrine_id: @shrine.id)
+    dod.save
   end
 
   def edit
@@ -44,11 +50,18 @@ class ShrinesController < ApplicationController
 
   private
 
+  def authorize_user!
+    unless current_user == @story.user || current_user.admin?
+      redirect_to root_path, alert: 'You do not have permission to perform this action.'
+    end
+
+  end
+
   def set_shrine
     @shrine = Shrine.find(params[:id])
   end
 
   def shrine_params
-    params.require(:shrine).permit(:name, :dob, :dod)
+    params.require(:shrine).permit(:first_name, :family_name, :dob, :dod, :photo)
   end
 end
