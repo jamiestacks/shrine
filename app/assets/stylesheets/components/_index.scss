@@ -4,3 +4,31 @@
 @import "form_legend_clear";
 @import "navbar";
 @import "timeline";
+
+.cool-box {
+width: 350px;
+height: 75px;
+left: 19px;
+top: 79px;
+background-color: #F2D2CF;
+border-radius: .5rem;
+}
+
+.cool-title {
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 39px;
+margin-top: 15px;
+margin-left: 30px;
+
+color: #000000;
+}
+
+.cool-logo {
+  height: 50px;
+  width: 50px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
