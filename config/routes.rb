@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :shrines do
     resources :chapters, only: [:index, :new, :create]
     resources :messages, only: [:index, :new, :create]
-    resources :shrine_users, only: [:new, :create]
+    resources :shrine_users, only: [:index, :new, :create]
   end
 
   resources :chapters, only: [:show, :edit, :update] do
