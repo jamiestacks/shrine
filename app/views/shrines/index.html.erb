@@ -1,53 +1,57 @@
-<div class="cool-title d-flex">
-<h1>Your shrines</h1>
-</div>
-
-<div class="swiper">
-  <div class="swiper-wrapper">
-    <% @shrines.each_with_index do |shrine, index| %>
-      <div class="card swiper-slide">
-        <% if shrine.photo.attached? %>
-          <%= image_tag shrine.photo, class: "card-img-top", height: 250%>
-        <% else %>
-          <%= image_tag "johnyoung2", class: "card-img-top", height: 250%>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= link_to "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}", shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <%= link_to "Edit", edit_shrine_path(shrine) %>
-          <%= link_to "Delete", shrine_path(shrine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        </div>
-      </div>
-    <% end %>
+<div class="d-flex flex-column justify-content-evenly align-items-center" style="min-height: calc(100vh - 70px); gap: 1rem;">
+  <div class="cool-box d-flex">
+  <%= image_tag "logo", class: "cool-logo"%>
+  <h1 class="cool-title">Your shrines</h1>
   </div>
-  <div class="swiper-pagination"></div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <% @shrines.each_with_index do |shrine, index| %>
+        <div class="card swiper-slide">
+          <% if shrine.photo.attached? %>
+            <%= image_tag shrine.photo, class: "card-img-top", height: 250%>
+          <% else %>
+            <%= image_tag "johnyoung2", class: "card-img-top", height: 250%>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}", shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <%= link_to "Edit", edit_shrine_path(shrine) %>
+            <%= link_to "Delete", shrine_path(shrine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
+
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+  </script>
+
+  <div class="cool-footer d-flex">
+  <%= link_to "Create a Shrine", new_shrine_path %>
+  <%= link_to "Join a Shrine", shrines_path %>
+  </div>
 </div>
-
-<%= link_to "Create a Shrine", new_shrine_path %>
-<%= link_to "Join a Shrine", shrines_path %>
-
-<script type="module">
-  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
-
-  const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-});
-</script>
