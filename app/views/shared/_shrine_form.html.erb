@@ -1,8 +1,8 @@
 <%= simple_form_for shrine do |f| %>
   <%= f.input :first_name, label: "First Name" %>
   <%= f.input :family_name, label: "Family Name" %>
-  <%= f.input :dob, as: :date, label: "Date of Birth" %>
-  <%= f.input :dod, as: :date, label: "Date of Death" %>
+  <%= f.input :dob, label: "Date of Birth", as: :string, input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :dod, label: "Date of Death", as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :biography, as: :text, label: "A Brief Biography" %>
   <%= f.button :submit %>
 <% end %>
