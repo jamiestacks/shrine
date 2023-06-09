@@ -1,20 +1,37 @@
-<div class="timeline-container">
+<div class="col-6 timeline-container">
   <div class="timeline-header">
     <h2 class="timeline-header__title"><%= @shrine.first_name %> <%= @shrine.family_name %>'s Timeline</h2>
   </div>
 
-  <div class="timeline">
-    <% @orderedchapters.each do |chapter| %>
-      <div class="timeline-item">
-        <div class="timeline__content">
-          <h3 class="timeline__content-title"><%= chapter.date_start.strftime("%e %B %Y") %></h3>
-          <h3 class="timeline__content-title">to</h3>
-          <h3 class="timeline__content-title"><%= chapter.date_end.strftime("%e %B %Y") %></h3>
-          <p class="timeline__content-desc"><%= link_to chapter.title, chapter_path(chapter) %></p>
-        </div>
-      </div>
+  <div class="new_chapter">
+    <%= link_to new_shrine_chapter_path(@shrine) do %>
+      <span><i class="fa-solid fa-plus"></i> Create a chapter</span>
     <% end %>
   </div>
-</div>
 
-<%= link_to "Create a new Chapter", new_shrine_chapter_path(@shrine) %>
+  <div class= "timeline">
+
+    <% @orderedchapters.each do |chapter| %>
+      <div class="timeline-item">
+
+        <div class="timeline-image">
+          <div class="filter"></div>
+          <%= cl_image_tag chapter.photo.key %>
+        </div>
+
+        <%= link_to chapter_path(chapter) do %>
+          <div class="timeline_content">
+            <h3><%= chapter.title %></h3>
+            <p><%= chapter.date_start.strftime("%eth %B %Y") %></p>
+            <div>
+              <span><i class="fa-regular fa-image"></i> <%= @chapters.count %></span>
+              <span><i class="fa-solid fa-pen-to-square"></i> <%= @chapters.count %></span>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+
+  </div>
+</div>
