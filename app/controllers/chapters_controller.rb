@@ -12,6 +12,7 @@ class ChaptersController < ApplicationController
 
   def show
     @story = Story.new
+    @stories = Story.where(chapter_id: @chapter)
   end
 
   def new
@@ -22,7 +23,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.new(chapter_params)
     @chapter.shrine = @shrine
     if @chapter.save
-      redirect_to shrine_chapters_path(@shrine)
+      redirect_to chapter_path(@chapter)
     else
       render :new, status: :unprocessable_entity
     end
@@ -57,5 +58,13 @@ class ChaptersController < ApplicationController
 
   def chapter_params
     params.require(:chapter).permit(:title, :date_start, :date_end, :shrine_id, :photo)
+  end
+
+  def story_params
+    params.require(:story).permit(:title, :body, photos: [])
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :family_name)
   end
 end

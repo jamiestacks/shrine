@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
+  before_action :set_chapter, only: [:create]
 
   def new
     @story = Story.new
@@ -8,11 +9,13 @@ class StoriesController < ApplicationController
 
   def create
     @story = Story.new(story_params)
+    @story.chapter_id = @chapter.id
+    @story.user = current_user
     if @story.save
+      @stories = Story.where(chapter_id: params[:chapter_id])
       redirect_to @chapter
-
     else
-      render :new
+      render "chapters/show", locals: { chapter: @chapter }, status: :unprocessable_entity
     end
   end
 
@@ -44,6 +47,10 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    params.require(:story).permit(:title, :content, photos: [])
+    params.require(:story).permit(:title, :body, photos: [])
+  end
+
+  def set_chapter
+    @chapter = Chapter.find(params[:chapter_id])
   end
 end
