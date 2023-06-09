@@ -35,7 +35,7 @@ puts 'Creating shrine'
 
 # Create new instance of Shrine
 
-bio = "John loved being a test Shrine. It was his dream his whole life, and is honoured to be used in such a way by smart Le Wagon students."
+bio = "John loved being a test Shrine. It was his dream his whole life, and he would be honoured to be used in such a way by smart Le Wagon students."
 
 main_shrine = Shrine.new(first_name: "John", family_name: "Smith", dob: "1937-03-11", dod: "2023-06-15", biography: bio, user_id: main_user.id)
 # Open the image file
