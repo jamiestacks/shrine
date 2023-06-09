@@ -43,7 +43,18 @@ file = File.open("./app/assets/images/johnprofile.jpg")
 main_shrine.photo.attach(io: file, filename: "johnprofile.jpg")
 main_shrine.save!
 
+#creating chapters for Johns b-day and d-day
+
+puts "Creating chapters"
+
 dob = Chapter.new(title: "John's first day", date_start: "1937-03-11", date_end: "1937-03-11", shrine_id: main_shrine.id)
-dob.save
+#adding image to each chapter
+dob_file = File.open("./app/assets/images/johnmom.jpeg")
+dob.photo.attach(io: dob_file, filename: "johnmom.jpeg")
+dob.save!
+
 dod = Chapter.new(title: "John's last day", date_start: "2023-06-15", date_end: "2023-06-15", shrine_id: main_shrine.id)
-dod.save
+#adding image to each chapter
+dod_file = File.open("./app/assets/images/sean_connery_old.jpg")
+dod.photo.attach(io: dod_file, filename: "sean_connery_old.jpg")
+dod.save!

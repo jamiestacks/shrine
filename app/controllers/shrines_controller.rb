@@ -2,7 +2,7 @@ class ShrinesController < ApplicationController
   before_action :set_shrine, only: []
   before_action :authenticate_user!, only: [:index, :show, :new, :create, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
-
+  after_action :create_dob_and_dod, only: :create
   def index
     @shrines = Shrine.all
   end
@@ -23,10 +23,6 @@ class ShrinesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    dob = Chapter.new(title: "#{@shrine.first_name}'s first day", date_start: @shrine.dob, date_end: @shrine.dob, shrine_id: @shrine.id)
-    dob.save
-    dod = Chapter.new(title: "#{@shrine.first_name}'s last day", date_start: @shrine.dod, date_end: @shrine.dod, shrine_id: @shrine.id)
-    dod.save
   end
 
   def edit
@@ -49,6 +45,13 @@ class ShrinesController < ApplicationController
   end
 
   private
+
+  def create_dob_and_dod
+    dob = Chapter.new(title: "#{@shrine.first_name}'s first day", date_start: @shrine.dob, date_end: @shrine.dob, shrine_id: @shrine.id)
+    dob.save
+    dod = Chapter.new(title: "#{@shrine.first_name}'s last day", date_start: @shrine.dod, date_end: @shrine.dod, shrine_id: @shrine.id)
+    dod.save
+  end
 
   def authorize_user!
     unless current_user == @story.user || current_user.admin?
