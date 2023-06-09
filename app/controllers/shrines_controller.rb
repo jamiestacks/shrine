@@ -5,7 +5,16 @@ class ShrinesController < ApplicationController
   after_action :create_dob_and_dod, only: :create
 
   def index
-    @shrines = Shrine.all
+    @invites = ShrineUser.where(user_id: current_user.id, status: "accept")
+    @invites += Shrine.where(user_id: current_user.id)
+    # @shrines = @invites.map(&:shrine) <------ one liner alternative to above
+    @shrines = @invites.map do |invite|
+      if invite.class.method_defined?(:shrine)
+        invite.shrine
+      else
+        invite
+      end
+    end.uniq
   end
 
   def show
