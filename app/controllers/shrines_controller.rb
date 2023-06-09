@@ -3,6 +3,7 @@ class ShrinesController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :new, :create, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
   after_action :create_dob_and_dod, only: :create
+
   def index
     @shrines = Shrine.all
   end

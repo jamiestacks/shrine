@@ -47,13 +47,13 @@ main_shrine.save!
 
 puts "Creating chapters"
 
-dob = Chapter.new(title: "John's first day", date_start: "1937-03-11", date_end: "1937-03-11", shrine_id: main_shrine.id)
+dob = Chapter.new(title: "When John was born", date_start: "1937-03-11", date_end: "1937-03-11", shrine_id: main_shrine.id)
 #adding image to each chapter
 dob_file = File.open("./app/assets/images/johnmom.jpeg")
 dob.photo.attach(io: dob_file, filename: "johnmom.jpeg")
 dob.save!
 
-dod = Chapter.new(title: "John's last day", date_start: "2023-06-15", date_end: "2023-06-15", shrine_id: main_shrine.id)
+dod = Chapter.new(title: "John's last days", date_start: "2023-06-15", date_end: "2023-06-15", shrine_id: main_shrine.id)
 #adding image to each chapter
 dod_file = File.open("./app/assets/images/sean_connery_old.jpg")
 dod.photo.attach(io: dod_file, filename: "sean_connery_old.jpg")
