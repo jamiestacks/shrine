@@ -3,6 +3,6 @@
   <%= f.input :title %>
   <%= f.input :date_start, label: "Start Date", as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :date_end, label: "End Date", as: :string, input_html: { data: { controller: "datepicker" } } %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photo, label: "Picture to represent this chapter", as: :file %>
   <%= f.submit "Create Chapter", class: "btn btn-primary" %>
 <% end %>
