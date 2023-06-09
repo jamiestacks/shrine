@@ -1,1 +1,31 @@
 // Specific CSS for your home-page
+.cool-box2{
+  padding: 10vmin;
+  .cool-logo {
+    height: 150px;
+    width: 150px;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  h1{
+    margin-top: 15vmin;
+  }
+  h3{
+    margin-top: 2vmin;
+  }
+}
+
+body{
+  background: linear-gradient(180deg, #FCF3EE 16.67%, #EE9A93 100%);
+}
+
+.home-footer{
+  width: 100vmin;
+  height:  100vmin;
+  margin-top: 4em;
+  padding:1vmin 1vmin 1vmin 1vmin;
+  p{
+    text-align: justify;
+    margin: 4vmin 2vmin 1vmin 2vmin;
+  }
+}
