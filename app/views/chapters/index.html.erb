@@ -16,7 +16,11 @@
 
         <div class="timeline-image">
           <div class="filter"></div>
-          <%= cl_image_tag chapter.photo.key %>
+          <% if chapter.photo.attached? %>
+            <%= cl_image_tag chapter.photo.key %>
+          <% else %>
+            <%= image_tag "default" %>
+          <% end %>
         </div>
 
         <%= link_to chapter_path(chapter) do %>
