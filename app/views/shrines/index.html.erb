@@ -1,4 +1,4 @@
-<div class="d-flex flex-column justify-content-evenly align-items-center" style="min-height: calc(100vh - 70px); gap: 1rem;">
+<div class="d-flex flex-column justify-content-evenly align-items-center" style="min-height: calc(100vh - 35px);">
   <div class="cool-box d-flex">
   <%= image_tag "logo", class: "cool-logo"%>
   <h1 class="cool-title">Your shrines</h1>
@@ -71,8 +71,9 @@
   });
   </script>
 
-  <div class="cool-footer d-flex">
-  <%= link_to "Create a Shrine", new_shrine_path %>
-  <%= link_to "Join a Shrine", shrines_path %>
+  <div class="cool-footer d-flex justify-content-evenly align-items-center">
+  <%= link_to "Create a Shrine", new_shrine_path, class:"bottom-link" %>
+  <p class="pin">|</p>
+  <%= link_to "Join a Shrine", shrines_path, class:"bottom-link" %>
   </div>
 </div>
