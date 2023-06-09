@@ -1,0 +1,9 @@
+
+<% unless controller_name == 'shrines' && ['index', 'show'].include?(action_name) %>
+<footer class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid d-flex justify-content-evenly">
+    <%= image_tag "image.png", class: "avatar" %>
+    <%= image_tag "logo.png", class: "avatar" %>
+    <%= image_tag "people.png", class: "avatar" %>
+</footer>
+<% end %>
