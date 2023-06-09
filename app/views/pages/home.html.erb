@@ -1,4 +1,27 @@
-<h1>SHRINE</h1>
-<p>Landing page - coming soon!</p>
 
-<%= link_to "Enter", shrines_path %>
+<div class="d-flex flex-column align-items-center body-background" style="min-height: calc(100vh - 70px);">
+  <div class="cool-box2 d-flex flex-column align-items-center">
+    <%= image_tag "logo", class: "cool-logo"%>
+    <div>
+      <h1 class="cool-title">Shrine</h1>
+    </div>
+    <div>
+      <h3>Remeber them. Together</h3>
+    </div>
+  </div>
+
+
+  <div class="d-flex align-items-center">
+
+    <%= link_to "Login", new_user_session_path, class: "mybutton button-link" %>
+  </div>
+
+
+  <div class="d-flex">
+
+    <%= link_to "Sign up", new_user_registration_path, class: "mybutton button-link" %>
+  </div>
+
+    <div class="d-flex home-footer"><p>Shrine connects families and preserves memories. Keep those who meant so much to you alive by celebrating them together. </p>
+</div>
+</div>
