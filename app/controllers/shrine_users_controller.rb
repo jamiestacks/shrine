@@ -15,7 +15,7 @@ class ShrineUsersController < ApplicationController
     @invite.user = @user
     @invite.shrine_id = params[:shrine_id]
     if @invite.save
-      redirect_to shrines_path
+      redirect_to shrine_path(params[:shrine_id])
     else
       render :new, status: :unprocessable_entity
     end
