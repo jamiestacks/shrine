@@ -1,5 +1,68 @@
-<%= "#{@chapter.title}" %>
 
-<%= link_to "Edit Chapter", edit_chapter_path(@chapter) %>
+<h1 class="chapter-header-title"><%= "#{@chapter.title}" %></h1>
+<% if @chapter.date_start.year == @chapter.date_end.year %>
+  <h3 class="chapter-header-title"><%= "#{@chapter.date_start.year}" %></h3>
+<% else %>
+  <h3 class="chapter-header-title"><%= "#{@chapter.date_start.year} - #{@chapter.date_end.year}" %></h3>
+<% end %>
 
-<%= link_to "Remove Chapter", chapter_path(@chapter), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this chapter?"} %>
+<div class = "chapter-cards-container">
+
+  <% if @chapter.story_ids.empty? %>
+    <div class = "empty-chapter-card row">
+      <p><%="No stories have been added to this chapter of #{@chapter.shrine.first_name}'s life yet. Click the button below to get started."%></p>
+    </div>
+  <% end %>
+
+  <div class = "story-preview-list">
+  <% @stories.each do |story| %>
+      <div class = "story-preview">
+        <div class = "story-header">
+          <h4 class = "story-title"> <%= "#{story.title}" %></h4>
+          <h6 class = "story-user">
+          <% user = story.user %>
+          <%= "#{user.first_name} #{user.family_name}" %>
+          </h6>
+        </div>
+        <div class = "story-body">
+          <p> <%= "#{story.body}" %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <br>
+    <div class = "create-story" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <div class = "story-header">
+        <h5> + </h5>
+        <p>Add a Story</p>
+      </div>
+    </div>
+
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Story</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           <h2>Your Story</h2>
+            <%= simple_form_for [@chapter, @story] do |f| %>
+              <%= f.input :title %>
+              <%= f.input :body, label: "Tell everyone your story", as: :text %>
+              <%= f.submit "Share Story", class: "btn btn-warning" %>
+            <% end %>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to "Edit Chapter", edit_chapter_path(@chapter) %>
+
+  <%= link_to "Remove Chapter", chapter_path(@chapter), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this chapter?"} %>
+
+</div>

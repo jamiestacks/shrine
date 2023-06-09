@@ -1,0 +1,84 @@
+.chapter-cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100vh - 50px);
+}
+
+.chapter-header-title {
+  color: #200B09;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.empty-chapter-card {
+  width: 20rem;
+  height: 5rem;
+  border-radius: .5rem;
+  background: #F2D2CF;
+  border: 1px solid #EE9A93;
+  text-align: center;
+  position: relative;
+  p {
+    top: 30%;
+  }
+}
+
+.create-story {
+  width: 6rem;
+  height: 2rem;
+  border-radius: .5rem;
+  color: #EDE9E8;
+  background: #C03E35;
+  text-align: center;
+  position: relative;
+  padding: 2px;
+  justify-content: center;
+}
+
+.story-preview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.story-preview {
+  position: relative;
+  align-items: center;
+  width: 100%;
+}
+
+.story-preview::after {
+  content: "";
+  margin-bottom: 10px;
+  position: absolute;
+  align-items: center;
+  width: 95%;
+  height: 1px;
+  background-color: #000;
+  opacity: 0.2;
+}
+
+.story-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.story-title {
+  align-self: flex-start;
+  color: #C03E35;
+}
+
+.story-user {
+  color: #200B09;
+  align-self: flex-end;
+}
+
+.story-body {
+  color: #200B09;
+  text-align: left;
+}
