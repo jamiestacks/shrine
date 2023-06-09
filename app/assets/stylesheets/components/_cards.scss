@@ -11,22 +11,31 @@
   height: 15rem;
   border-radius: .5rem;
   background: #F2D2CF;
-  border: 1px solid #EE9A93;
+  border: 1px solid #EDE9E8;
+  color: #EDE9E8;
+  overflow: hidden;
+  background-size: 100% 100%;
+  .id-tag {
+    width: 100%;
+    padding: 5px;
+  }
   h2 {
     position: absolute;
     bottom: 0;
   }
   h4 {
     position: absolute;
-    text-align: end;
+    right: 0;
     bottom: 0;
   }
 
-  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
 }
 
-.photocard:hover {
-  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
+.shrine-img-top {
+  position: absolute;
+  min-height: 100%;
+  width: 100%
 }
 
 .biocard {
@@ -36,12 +45,6 @@
   background: #F2D2CF;
   border: 1px solid #EE9A93;
   font-size: 12px;
-
-  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
-}
-
-.biocard:hover {
-  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
 }
 
 .timelinecard {
@@ -59,7 +62,7 @@
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
 }
 
-.rectanglecard:hover {
+.timelinecard:hover {
   filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
 }
 
