@@ -3,48 +3,32 @@
   <%= image_tag "logo", class: "cool-logo"%>
   <h1 class="cool-title">Your shrines</h1>
   </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <% @shrines.each_with_index do |shrine, index| %>
-        <div class="card swiper-slide">
-          <% if shrine.photo.attached? %>
-            <%= image_tag shrine.photo, class: "card-img-top", height: 250%>
-          <% else %>
-            <%= image_tag "johnyoung2", class: "card-img-top", height: 250%>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}", shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <%= link_to "Edit", edit_shrine_path(shrine) %>
-            <%= link_to "Delete", shrine_path(shrine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% unless @invites.empty? %>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <% @shrines.each_with_index do |shrine, index| %>
+          <div class="card swiper-slide">
+            <% if shrine.photo.attached? %>
+              <%= image_tag shrine.photo, class: "card-img-top", height: 250%>
+            <% else %>
+              <%= image_tag "johnyoung2", class: "card-img-top", height: 250%>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}", shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <% if shrine.user == current_user %>
+                <%= link_to "Edit", edit_shrine_path(shrine) %>
+                <%= link_to "Delete", shrine_path(shrine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    <div class="swiper-pagination"></div>
-  </div>
-
-<ul>
-  <% unless @condition %>
-
-      <% @shrines.each do |shrine| %>
-        <li><%= link_to shrine.first_name.capitalize, shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></li>
-        <%= link_to "Edit", edit_shrine_path(shrine) %>
-        <%= link_to "Delete", shrine_path(shrine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-
-      <% @ownshrines.each do |shrine| %>
-        <li><%= link_to shrine.first_name.capitalize, shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></li>
-        <%= link_to "Edit", edit_shrine_path(shrine) %>
-        <%= link_to "Delete", shrine_path(shrine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-
   <% else %>
-
-  <p>You don't have any shrine to visit, yet</p>
-
+    <h1>You have no shrines, lucky person!</h1>
   <% end %>
-</ul>
   <script type="module">
     import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
 

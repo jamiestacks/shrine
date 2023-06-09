@@ -6,12 +6,15 @@ class ShrinesController < ApplicationController
 
   def index
     @invites = ShrineUser.where(user_id: current_user.id, status: "accept")
+    @invites += Shrine.where(user_id: current_user.id)
     # @shrines = @invites.map(&:shrine) <------ one liner alternative to above
     @shrines = @invites.map do |invite|
-      invite.shrine
-    end
-    @condition = @invites.count.zero? && Shrine.where(user_id: current_user.id).count.zero?
-    @ownshrines = Shrine.where(user_id: current_user)
+      if invite.class.method_defined?(:shrine)
+        invite.shrine
+      else
+        invite
+      end
+    end.uniq
   end
 
   def show
