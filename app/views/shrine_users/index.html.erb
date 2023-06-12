@@ -3,7 +3,7 @@
   <p>You don't have any pending invitations</p>
   <% else %>
   <% @invites.each do |invite| %>
-    <ol><li><%= invite.status %>
+    <ol><li>You have being invited to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %> Shrine
     <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch } %>
     <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
 
