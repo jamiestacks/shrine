@@ -20,14 +20,20 @@
       }
     </style>
   </head>
-
   <body>
-
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
-    <%= render "shared/flashes" %>
-    <%= render "shared/footer" %>
+    <% if controller_name == 'shrines' && ['index'].include?(action_name) %>
+    <header>
+      <%= render "shared/navbar" %>
+    </header>
+    <% end %>
+    <main>
+      <%= render "shared/flashes" %>
+      <%= yield %>
+    </main>
+    <% unless ['shrines', 'pages', 'messages', 'shrine_users'].include?(controller_name) && ['index', 'home', 'new'].include?(action_name) %>
+    <footer>
+      <%= render "shared/footer" %>
+    </footer>
+    <% end %>
   </body>
-
 </html>
