@@ -1,9 +1,13 @@
 
-<% if controller_name == 'chapters' && ['index'].include?(action_name) %>
 <footer class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid d-flex justify-content-evenly">
-    <%= image_tag "image.png", class: "avatar" %>
-    <%= image_tag "logo.png", class: "avatar" %>
-    <%= image_tag "people.png", class: "avatar" %>
+  <div class="container-fluid d-flex justify-content-between">
+    <%= link_to shrines_path do %>
+      <%= image_tag "home.png", class: "avatar" %>
+    <% end %>
+    <%= link_to shrine_chapters_path(@shrine) do %>
+      <%= image_tag "logo.png", class: "avatar" %>
+    <% end %>
+    <%= link_to shrine_messages_path(@shrine) do %>
+      <%= image_tag "message.png", class: "avatar" %>
+    <% end %>
 </footer>
-<% end %>
