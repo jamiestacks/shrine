@@ -1,41 +1,64 @@
 <div class="col-6 timeline-container">
+
   <div class="timeline-header">
     <h2 class="timeline-header__title"><%= @shrine.first_name %> <%= @shrine.family_name %>'s Timeline</h2>
   </div>
 
   <div class="new_chapter">
     <%= link_to new_shrine_chapter_path(@shrine) do %>
-      <span><i class="fa-solid fa-plus"></i> Create a chapter</span>
+      <span><i class="fa-solid fa-plus"></i> Add a new chapter</span>
     <% end %>
   </div>
 
   <div class= "timeline">
-
     <% @orderedchapters.each do |chapter| %>
-      <div class="timeline-item">
+      <%= link_to chapter_path(chapter) do %>
+        <div class="timeline-item">
 
-        <div class="timeline-image">
-          <div class="filter"></div>
-          <% if chapter.photo.attached? %>
-            <%= cl_image_tag chapter.photo.key %>
-          <% else %>
-            <%= image_tag "default" %>
-          <% end %>
-        </div>
-
-        <%= link_to chapter_path(chapter) do %>
-          <div class="timeline_content">
+          <span class="timeline-title">
             <h3><%= chapter.title %></h3>
             <p><%= chapter.date_start.strftime("%eth %B %Y") %></p>
             <div>
               <span><i class="fa-regular fa-image"></i> <%= @chapters.count %></span>
               <span><i class="fa-solid fa-pen-to-square"></i> <%= @chapters.count %></span>
+          </span>
+
+
+          <div class="timeline-content">
+
+            <div class="timeline-image">
+              <div class="filter"></div>
+              <% if chapter.photo.attached? %>
+                <%= cl_image_tag chapter.photo.key %>
+              <% else %>
+                <%= image_tag "default" %>
+              <% end %>
             </div>
+
+
+            <div class="timeline-date-icons">
+              <div class="timeline-date">
+                <%= chapter.date_start.strftime("%e %B %Y") %>
+              </div>
+              <div class="timeline-icons">
+                <% photos = 0 %>
+                <% chapter.stories.each do |story| %>
+                  <% photos += story.photos.count %>
+                <% end %>
+                <span><i class="fa-regular fa-image"></i> <%= photos %></span>
+                <span><i class="fa-solid fa-feather-pointed"></i><%= Story.where(chapter_id: chapter).count %></span>
+              </div>
+            </div>
+
+            <div class="timeline-description">
+              <p><%= chapter.description %></p>
+            </div>
+
           </div>
-        <% end %>
 
-      </div>
+        </div>
+      <% end %>
     <% end %>
-
   </div>
+
 </div>
