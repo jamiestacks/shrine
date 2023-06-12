@@ -17,6 +17,10 @@
 
           <span class="timeline-title">
             <h3><%= chapter.title %></h3>
+            <p><%= chapter.date_start.strftime("%eth %B %Y") %></p>
+            <div>
+              <span><i class="fa-regular fa-image"></i> <%= @chapters.count %></span>
+              <span><i class="fa-solid fa-pen-to-square"></i> <%= @chapters.count %></span>
           </span>
 
 
