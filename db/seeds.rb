@@ -19,7 +19,7 @@ count = 1
 10.times do
   user = User.new(
     first_name: first_names.sample,
-    family_name: "Test",
+    family_name: "Connery",
     email: "mynameis#{count}@hotmail.com",
     password: "123456"
   )
@@ -43,7 +43,7 @@ file = File.open("./app/assets/images/johnprofile.jpg")
 main_shrine.photo.attach(io: file, filename: "johnprofile.jpg")
 main_shrine.save!
 
-#creating chapters for Seans b-day and d-day
+#creating chapters
 
 puts "Creating chapters"
 
@@ -79,7 +79,7 @@ chapter_3.save!
 
 chapter_4 = Chapter.new(
   title: "Career switches",
-  date_start: "1938-12-14",
+  date_start: "1948-12-14",
   date_end: "1950-07-19",
   shrine_id: main_shrine.id,
   description: "Afterwards, he returned to the co-op and worked as a lorry driver, a lifeguard at Portobello swimming baths, a labourer, an artist's model for the Edinburgh College of Art, and after a suggestion by former Mr. Scotland Archie Brennan, as a coffin polisher, among other jobs. The modelling earned him 15 shillings an hour."
@@ -147,4 +147,39 @@ chapter_10 = Chapter.new(
 chapter_10.photo.attach(io: File.open("./app/assets/images/johnyoung2.jpg"), filename: "johnyoung2.jpg")
 chapter_10.save!
 
-puts "Seeding has been completed"
+# creating stories
+puts "Seeding stories for Seans time in the navy"
+
+picture_array = [""]
+
+story_1 = Story.new(
+  title: "My best mate",
+  body: "I met Sean at the Navy, we became best friends and did everything together",
+  chapter_id: chapter_3.id,
+  user_id: User.all.sample.id
+)
+story_1.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_2.jpg"), filename: "seanconnery_navy_2.jpg")
+story_1.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_5.jpg"), filename: "seanconnery_navy_5.jpg")
+story_1.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_6.jpg"), filename: "seanconnery_navy_6.jpg")
+story_1.save!
+
+story_2 = Story.new(
+  title: "I want to follow Grandads Navy career",
+  body: "Grandad really inspired me to join the Navy. I'm not a great actor like him but I want to be a great sailor like him. He told me a great story of how he pranks the captain and got demoted to cleaning duties",
+  chapter_id: chapter_3.id,
+  user_id: User.all.sample.id
+)
+story_2.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_1.jpg"), filename: "seanconnery_navy_1.jpg")
+story_2.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_3.jpg"), filename: "seanconnery_navy_3.jpg")
+story_2.save!
+
+story_3 = Story.new(
+  title: "He visited me in the Bahamas",
+  body: "Sean stayed in the Bahamas during his time with the Navy. He loved the country so much that he brought my house. I took care of the house when he left but he returned frequently on his holidays.",
+  chapter_id: chapter_3.id,
+  user_id: User.all.sample.id
+)
+story_2.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_4.jpg"), filename: "seanconnery_navy_4.jpg")
+story_3.save!
+
+puts "SEEDING HAS BEEN COMPLETED"
