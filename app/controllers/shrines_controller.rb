@@ -1,5 +1,5 @@
 class ShrinesController < ApplicationController
-  before_action :set_shrine, only: %i[show edit update destroy]
+  before_action :set_shrine, only: []
   before_action :authenticate_user!, only: [:index, :show, :new, :create, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
   after_action :create_dob_and_dod, only: :create
@@ -18,6 +18,7 @@ class ShrinesController < ApplicationController
   end
 
   def show
+    @shrine = Shrine.find(params[:id])
   end
 
   def new
@@ -25,6 +26,7 @@ class ShrinesController < ApplicationController
   end
 
   def create
+    @shrine = Shrine.new(shrine_params)
     @shrine.user = current_user
     if @shrine.save
       redirect_to shrines_path
@@ -34,9 +36,11 @@ class ShrinesController < ApplicationController
   end
 
   def edit
+    @shrine = Shrine.find(params[:id])
   end
 
   def update
+    @shrine = Shrine.find(params[:id])
     if @shrine.update(shrine_params)
       redirect_to shrines_path
     else
@@ -45,6 +49,7 @@ class ShrinesController < ApplicationController
   end
 
   def destroy
+    @shrine = Shrine.find(params[:id])
     @shrine.destroy
     redirect_to shrines_path, status: :see_other
   end
@@ -63,6 +68,7 @@ class ShrinesController < ApplicationController
     unless current_user == @shrine.user || current_user.admin?
       redirect_to root_path, alert: 'You do not have permission to perform this action.'
     end
+
   end
 
   def set_shrine

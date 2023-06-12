@@ -5,22 +5,30 @@
     <h1>Invites to shrines</h1>
     <p>You don't have any pending invitations</p>
   <% elsif @invites.count == 1%>
-    <h1>You have an invitation</h1>
-    <% @invites.each do |invite| %>
-      <ol>
-        <li>You have being invited to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %> Shrine
-          <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch } %>
-          <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
-        </li>
-      </ol>
+      <h1>You have an invitation</h1>
+      <% @invites.each do |invite| %>
+      <div class="invite-bigcard">
+        <div class="invite-cardhead">
+            <p>You have being invited to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %> Shrine</p>
+        </div>
+          <div class="invite-card-actions">
+            <div class="invite-accept">
+                <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch}%>
+            </div>
+            <div class="invite-decline">
+                <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
     <% else %>
-    <h1>You have invitations</h1>
+    <h1>You have <%= @invites.count %> invitations</h1>
     <% @invites.each do |invite| %>
       <ol>
         <li>You have being invited to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %> Shrine
-          <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch } %>
-          <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+          <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), class: "invite-button-accept button-link", data: {turbo_method: :patch } %>
+          <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), class: "invite-button-decline button-link", data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
         </li>
       </ol>
     <% end %>
