@@ -1,6 +1,7 @@
 <h1>Edit Chapter</h1>
 <%= simple_form_for(@chapter) do |f| %>
   <%= f.input :title %>
+  <%= f.input :title, label: "Add a short description of this chapter" %>
   <%= f.input :date_start, label: "Start Date", as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :date_end, label: "End Date", as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :photo, label: "Picture to represent this chapter", as: :file %>
