@@ -57,7 +57,7 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_params
-    params.require(:chapter).permit(:title, :date_start, :date_end, :shrine_id, :photo)
+    params.require(:chapter).permit(:title, :date_start, :date_end, :shrine_id, :photo, :description)
   end
 
   def story_params
