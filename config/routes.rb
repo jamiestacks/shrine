@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :shrine_users, only: [:index, :update]
 
+  get "/shrines/:shrine_id/members", to: "shrine_users#members", as: "members"
+
   resources :chapters, only: [:show, :edit, :update, :destroy] do
     resources :stories, only: [:new, :create]
   end
