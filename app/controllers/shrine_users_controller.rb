@@ -3,6 +3,12 @@ class ShrineUsersController < ApplicationController
     @invites = ShrineUser.where(user_id: current_user.id, status: "pending")
   end
 
+  def members
+    @shrine_members_accepted = ShrineUser.where(shrine_id: params[:shrine_id], status: "accept")
+    @shrine_members_accepted += User.joins("INNER JOIN shrines ON shrines.user_id = users.id").where("users.id = ?", Shrine.find(params[:shrine_id]).user_id).uniq
+    @shrine_members_invited = ShrineUser.where(shrine_id: params[:shrine_id], status: "pending")
+  end
+
   def new
     @invite = ShrineUser.new
     @invite.shrine_id = Shrine.find(params[:shrine_id])
