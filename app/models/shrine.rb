@@ -8,7 +8,7 @@ class Shrine < ApplicationRecord
   validates :first_name, presence: true
   validates :family_name, presence: true
   validates :dob, presence: true
-  validates :biography, presence: true, length: { minimum: 50, maximum: 400 }
+  validates :biography, presence: true, length: { minimum: 150, maximum: 500 }
   validate :birth_cannot_be_in_the_future
 
   def birth_cannot_be_in_the_future

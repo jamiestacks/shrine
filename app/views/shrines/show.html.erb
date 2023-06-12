@@ -1,30 +1,26 @@
 <div class = "card-container">
-  <div class = "photocard">
-    <%= image_tag @shrine.photo, class: "shrine-img-top" %>
-      <div class = "id-tag">
-        <h2><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}" %></h2>
-        <h4><%= "#{@shrine.dob.year} - #{@shrine.dod.year}" %></h4>
-      </div>
-  </div>
-  <div class = "biocard row">
-    <h4><%="#{@shrine.first_name.capitalize}'s Biography"%></h4>
-    <p><%= @shrine.biography %></p>
+  <div class = "photo-bio-card">
+    <div class = "photocard">
+      <%= image_tag @shrine.photo, class: "shrine-img-top" %>
+        <div class = "id-tag">
+          <h2><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}" %></h2>
+          <h4><%= "#{@shrine.dob.year} - #{@shrine.dod.year}" %></h4>
+        </div>
+    </div>
+    <div class = "biocard">
+      <p><%= @shrine.biography %></p>
+    </div>
   </div>
   <a href="<%= shrine_chapters_path(@shrine) %>" class="card-link">
     <div class = "timelinecard row">
-    <h1>Timeline</h1>
+      <%= image_tag "timeline.png", style: 'width: 9rem; height:7rem' %>
     </div>
   </a>
-  <div class="flex-container">
-    <a href="<%= shrine_messages_path(@shrine) %>" class="card-link">
-      <div class = "squarecard flex-item">
-        <h4>Chatroom</h4>
-      </div>
-    </a>
-    <div class = "squarecard flex-item">
-      <h4>Photos</h4>
+  <a href="<%= members_path(@shrine) %>" class="card-link">
+    <div class = "members row">
+      <%= image_tag "family.png", style: 'width: 6.5rem; height:4.5rem' %>
     </div>
-  </div>
+  </a>
   <a href="<%= new_shrine_shrine_user_path(@shrine) %>" class="card-link">
     <div class = "invitecard row">
       <h5>Invite</h5>
