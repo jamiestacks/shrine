@@ -64,13 +64,15 @@
 }
 
 .timelinecard {
+  display: flex;
+  flex-direction: column;
   width: 20rem;
   height: 10rem;
   border-radius: .5rem;
   background: #EE9A93;
   border: 1px solid #FBF0EF;
   justify-content: center;
-  padding-top: 7%;
+  align-items: center;
 
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
 }
@@ -114,12 +116,14 @@
 }
 
 .invitecard {
+  display: flex;
   width: 20rem;
   height: 4rem;
   border-radius: .5rem;
   background: #C03E35;
   border: 1px solid #FBF0EF;
   text-align: center;
+  justify-content: center;
   h5 {
     position: absolute;
     top: 30%;
