@@ -26,7 +26,7 @@
         <%= link_to chapter_path(chapter) do %>
           <div class="timeline_content">
             <h3><%= chapter.title %></h3>
-            <p><%= chapter.date_start.strftime("%e %B %Y") %></p>
+            <p><%= chapter.date_start.strftime("%eth %B %Y") %></p>
             <div>
               <span><i class="fa-regular fa-image"></i> <%= @chapters.count %></span>
               <span><i class="fa-solid fa-pen-to-square"></i> <%= @chapters.count %></span>
