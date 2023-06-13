@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :shrine_users
   has_many :shrines, dependent: :destroy
+  has_one_attached :photo
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

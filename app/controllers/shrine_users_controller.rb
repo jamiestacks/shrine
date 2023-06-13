@@ -19,8 +19,8 @@ class ShrineUsersController < ApplicationController
 
   def members
     @shrine = Shrine.find(params[:shrine_id])
-    @shrine_creator_id = Shrine.where(id: params[:shrine_id]).pluck(:user_id)
-    @shrine_creator = User.find(@shrine_creator_id)
+    @shrine_creator = @shrine.user
+
     @shrine_members_accepted = ShrineUser.where(shrine_id: params[:shrine_id], status: "accept").pluck(:user_id)
     @shrine_members = @shrine_members_accepted.map { |user| User.find(user) }
     @sorted_shrine_members = @shrine_members.sort_by { |user| user.family_name }
@@ -46,10 +46,6 @@ class ShrineUsersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-
   end
 
   def update
