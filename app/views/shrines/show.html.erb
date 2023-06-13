@@ -12,17 +12,19 @@
     </div>
   </div>
   <a href="<%= shrine_chapters_path(@shrine) %>" class="card-link">
-    <div class = "timelinecard row">
-      <%= image_tag "timeline.png", style: 'width: 9rem; height:7rem' %>
+    <div class = "timelinecard">
+      <h4><%= "#{@shrine.first_name}'s Timeline"  %> </h4>
+      <%= image_tag "timeline.png", style: 'width: 7rem; height:5.5rem' %>
     </div>
   </a>
   <a href="<%= members_path(@shrine) %>" class="card-link">
-    <div class = "members row">
-      <%= image_tag "family.png", style: 'width: 6.5rem; height:4.5rem' %>
+    <div class = "members">
+      <h5> Shrine Members </h5>
+      <%= image_tag "family.png", style: 'width: 3.5rem; height:2.8rem' %>
     </div>
   </a>
   <a href="<%= new_shrine_shrine_user_path(@shrine) %>" class="card-link">
-    <div class = "invitecard row">
+    <div class = "invitecard">
       <h5>Invite</h5>
     </div>
   </a>
