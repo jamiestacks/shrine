@@ -4,7 +4,7 @@
   <h1 class="cool-title">Your shrines</h1>
   </div>
   <% unless @invites.empty? %>
-    <div class="swiper">
+    <div class="swiper" id="swiper">
       <div class="swiper-wrapper">
         <% @shrines.each_with_index do |shrine, index| %>
           <div class="card swiper-slide">
