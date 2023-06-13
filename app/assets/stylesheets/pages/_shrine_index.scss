@@ -1,0 +1,14 @@
+.back-cont{
+
+  background-image: linear-gradient(to bottom, #f5f6fc85, #EE9A93ba), url('peace_water.gif');
+  opacity: 0.75;
+  background-size: cover;
+
+    h1{
+      position: relative;
+      color: $font;
+      text-align:center;
+      margin: 0.5rem;
+      line-height: 0.9;
+      }
+  }

@@ -64,7 +64,8 @@ class ShrinesController < ApplicationController
   end
 
   def authorize_user!
-    unless current_user == @story.user || current_user.admin?
+    set_shrine
+    unless current_user == @shrine.user || current_user.admin?
       redirect_to root_path, alert: 'You do not have permission to perform this action.'
     end
 
