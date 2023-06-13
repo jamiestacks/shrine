@@ -12,19 +12,6 @@
   margin-bottom: 10px;
 }
 
-.empty-chapter-card {
-  width: 20rem;
-  height: 5rem;
-  border-radius: .5rem;
-  background: #F2D2CF;
-  border: 1px solid #EE9A93;
-  text-align: center;
-  position: relative;
-  p {
-    top: 30%;
-  }
-}
-
 .create-story {
   width: 6rem;
   height: 2rem;
@@ -68,17 +55,7 @@
   justify-content: space-between;
 }
 
-.story-title {
-  align-self: flex-start;
-  color: #C03E35;
-}
-
 .story-user {
   color: #200B09;
   align-self: flex-end;
-}
-
-.story-body {
-  color: #200B09;
-  text-align: left;
 }

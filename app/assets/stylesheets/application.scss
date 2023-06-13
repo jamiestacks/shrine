@@ -13,6 +13,8 @@
 @import "components/cards";
 @import "components/swiper";
 @import "components/chapter";
+@import "components/members";
+@import "components/chat";
 
 body {
   display: flex;
@@ -28,4 +30,5 @@ footer {
   flex-shrink: 0;
   position: sticky;
   bottom: 0;
+  z-index: 5;
 }

@@ -4,9 +4,15 @@ class ShrineUsersController < ApplicationController
   end
 
   def members
-    @shrine_members_accepted = ShrineUser.where(shrine_id: params[:shrine_id], status: "accept")
-    @shrine_members_accepted += User.joins("INNER JOIN shrines ON shrines.user_id = users.id").where("users.id = ?", Shrine.find(params[:shrine_id]).user_id).uniq
-    @shrine_members_invited = ShrineUser.where(shrine_id: params[:shrine_id], status: "pending")
+    @shrine = Shrine.find(params[:shrine_id])
+    @shrine_creator_id = Shrine.where(id: params[:shrine_id]).pluck(:user_id)
+    @shrine_creator = User.find(@shrine_creator_id)
+    @shrine_members_accepted = ShrineUser.where(shrine_id: params[:shrine_id], status: "accept").pluck(:user_id)
+    @shrine_members = @shrine_members_accepted.map { |user| User.find(user) }
+    @sorted_shrine_members = @shrine_members.sort_by { |user| user.family_name }
+    @shrine_members_invited = ShrineUser.where(shrine_id: params[:shrine_id], status: "pending").pluck(:user_id)
+    @invited_users = @shrine_members_invited.map { |user| User.find(user) }
+    @sorted_invited_users = @invited_users.sort_by { |user| user.family_name }
   end
 
   def new
@@ -37,7 +43,7 @@ class ShrineUsersController < ApplicationController
   private
 
   def shrine_user_params
-    params.require(:shrine_user).permit(:status, :shrine_id)
+    params.require(:shrine_user).permit(:status, :shrine_id, :user_id)
   end
 
   family_relations = ["Aunt", "Brother", "Brother-in-law", "Cousin", "Daughter",

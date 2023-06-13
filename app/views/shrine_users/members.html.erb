@@ -1,1 +1,41 @@
-<h1><% #{} %> </h1>
+<div class = "members-cards-container">
+
+  <div class = "members-header-title"> <h1> <%= "#{@shrine.first_name}'s Shrine Members" %> </h1> </div>
+
+  <div class = "users-list">
+    <% @shrine_creator.each do |user| %>
+        <div class = "user-preview">
+          <div class = "user-header">
+            <h5 class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></h5>
+            <p class = "status"> Creator </p>
+          </div>
+        </div>
+    <% end %>
+
+    <% @sorted_shrine_members.each do |user| %>
+        <div class = "user-preview">
+          <div class = "user-header">
+            <h5 class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></h5>
+          </div>
+        </div>
+    <% end %>
+
+    <% @sorted_invited_users.each do |user| %>
+        <div class = "user-preview">
+          <div class = "user-header">
+            <h5 class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></h5>
+            <p class = "status"> Invited </p>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+  <div class = "member-count">
+    <h5><%= "#{@shrine_creator.count + @sorted_shrine_members.count + @sorted_invited_users.count} members" %></h5>
+  </div>
+
+  <a href="<%= new_shrine_shrine_user_path(@shrine) %>" class="card-link">
+    <div class = "invitecard-mini row">
+      <h6>Invite others</h6>
+    </div>
+</div>

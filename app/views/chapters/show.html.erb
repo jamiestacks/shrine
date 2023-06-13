@@ -1,69 +1,89 @@
+<div class="col-6 stories-show-container">
 
-<h1 class="chapter-header-title"><%= "#{@chapter.title}" %></h1>
-<% if @chapter.date_start.year == @chapter.date_end.year %>
-  <h3 class="chapter-header-title"><%= "#{@chapter.date_start.year}" %></h3>
-<% else %>
-  <h3 class="chapter-header-title"><%= "#{@chapter.date_start.year} - #{@chapter.date_end.year}" %></h3>
-<% end %>
+  <div class="chapter-title">
+    <h1><%= "#{@chapter.title}" %></h1>
+  </div>
 
-<div class = "chapter-cards-container">
+  <div class="chapter-date">
+    <% if @chapter.date_start.year == @chapter.date_end.year %>
+      <h3><%= "#{@chapter.date_start.strftime("%e %B %Y")}" %></h3>
+    <% else %>
+      <h3><%= "#{@chapter.date_start.strftime("%e %B %Y")} - #{@chapter.date_end.strftime("%e %B %Y")}" %></h3>
+    <% end %>
+  </div>
+
+  <div class="add-story" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <span><i class="fa-solid fa-plus"></i> Add a new story</span>
+  </div>
+
 
   <% if @chapter.story_ids.empty? %>
-    <div class = "empty-chapter-card row">
+    <div class="empty-chapter-card">
       <p><%="No stories have been added to this chapter of #{@chapter.shrine.first_name}'s life yet. Click the button below to get started."%></p>
+    </div>
+  <% else %>
+    <div class="story-cards">
+      <% @stories.each do |story| %>
+        <div class="story-card">
+
+          <div class="story-image">
+            <% if story.photos.attached? %>
+              <%= cl_image_tag story.photos.first.key %>
+            <% else %>
+              <%= image_tag "default" %>
+            <% end %>
+          </div>
+
+          <div class="story-description">
+            <div class = "story-title">
+              <h4><%= "#{story.title}" %></h4>
+            </div>
+
+            <div class="story-body">
+              <p>"<%= "#{story.body}" %>"</p>
+            </div>
+
+            <div class="story-user-name" value="<% user = story.user %>">
+              <p><%= "#{user.first_name} #{user.family_name}"%></p>
+              <p><%= story.created_at.strftime("%e %B %Y, %H:%M") %></p>
+            </div>
+          </div>
+
+        </div>
+      <% end %>
     </div>
   <% end %>
 
-  <div class = "story-preview-list">
-  <% @stories.each do |story| %>
-      <div class = "story-preview">
-        <div class = "story-header">
-          <h4 class = "story-title"> <%= "#{story.title}" %></h4>
-          <h6 class = "story-user">
-          <% user = story.user %>
-          <%= "#{user.first_name} #{user.family_name}" %>
-          </h6>
-        </div>
-        <div class = "story-body">
-          <p> <%= "#{story.body}" %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <br>
-    <div class = "create-story" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      <div class = "story-header">
-        <h5> + </h5>
-        <p>Add a Story</p>
-      </div>
-    </div>
-
-
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Story</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-           <h2>Your Story</h2>
-            <%= simple_form_for [@chapter, @story] do |f| %>
-              <%= f.input :title %>
-              <%= f.input :body, label: "Tell everyone your story", as: :text %>
-              <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Add any pictures that are associated to this story"%>
-              <%= f.submit "Share Story", class: "btn btn-warning" %>
-            <% end %>
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <%= link_to "Edit Chapter", edit_chapter_path(@chapter) %>
-
-  <%= link_to "Remove Chapter", chapter_path(@chapter), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this chapter?"} %>
-
 </div>
+
+
+
+
+<%# new story modal %>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Story</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h2>Your Story</h2>
+          <%= simple_form_for [@chapter, @story] do |f| %>
+            <%= f.input :title %>
+            <%= f.input :body, label: "Tell everyone your story", as: :text %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Add any pictures that are associated to this story"%>
+            <%= f.submit "Share Story", class: "btn btn-warning" %>
+          <% end %>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%# <%= link_to "Edit Chapter", edit_chapter_path(@chapter) %>
+<%# <%= link_to "Remove Chapter", chapter_path(@chapter), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this chapter?"} %>
