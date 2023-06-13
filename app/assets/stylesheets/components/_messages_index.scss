@@ -21,12 +21,17 @@
 
 .messages-container {
   background-color: $white;
-  height: 670px;
+  height: 636px;
   overflow: scroll;
   overscroll-behavior: none;
-  padding-top: 60px;
   padding: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
 }
+
+
 
 .chatroom-input-container {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -44,5 +49,73 @@
     border: 1px solid black;
     border-radius: 40px;
     background-color: $brand;
+  }
+}
+
+.chatroom-message {
+
+  .message-content {
+    max-width: 200px;
+  }
+  p {
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+
+
+.message-row {
+  margin-bottom: 20px;
+}
+
+// To style the message itself
+.sender-style, .receiver-style {
+  max-width: 90%;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 80px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.sender-style {
+  background-color: $brand;
+  text-align: right;
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 10px;
+  }
+  .timestamp {
+    width: 50px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .message-content {
+    margin-left: 10px
+  }
+}
+
+.receiver-style {
+  background-color: $white;
+  .bottom {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 10px;
+  }
+  .timestamp {
+    width: 50px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .message-content {
+    margin-right: 10px
   }
 }
