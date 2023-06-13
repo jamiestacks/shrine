@@ -1,7 +1,7 @@
-<div class="d-flex flex-column justify-content-between align-items-center" style="min-height: calc(100vh - 70px);">
+<div class="back-cont d-flex flex-column justify-content-between align-items-center" style="min-height: calc(100vh - 70px);">
   <div class="cool-box d-flex">
-  <%= image_tag "logo.png", class: "cool-logo"%>
-  <h1 class="cool-title">Your shrines</h1>
+    <%= image_tag "logo.png", class: "cool-logo"%>
+    <h1 id="cool-title">Your shrines</h1>
   </div>
   <% unless @invites.empty? %>
     <div class="swiper">
@@ -27,7 +27,11 @@
       <div class="swiper-pagination"></div>
     </div>
   <% else %>
-    <h1>You have no shrines, lucky person!</h1>
+    <div class='d-flex align-items-center'>
+      <div>
+        <h1>You have no shrines, lucky person!</h1>
+      </div>
+    </div>
   <% end %>
   <script type="module">
     import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'

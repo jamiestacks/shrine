@@ -1,6 +1,6 @@
 class Chapter < ApplicationRecord
   belongs_to :shrine
-  has_many :stories
+  has_many :stories, dependent: :destroy
   has_one_attached :photo
 
   validates :title, :date_start, :date_end, presence: true
