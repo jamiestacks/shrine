@@ -54,13 +54,13 @@ class ShrineUsersController < ApplicationController
 
   def update
     shrine_user = ShrineUser.find(params[:id])
-    shrine_user.update(status: params[:status, :relationship])
+    shrine_user.update(shrine_user_params)
     redirect_to shrine_path(shrine_user.shrine_id)
   end
 
   private
 
   def shrine_user_params
-    params.require(:shrine_user).permit(:status, :shrine_id, :user_id)
+    params.require(:shrine_user).permit(:status, :shrine_id, :user_id, :relationship)
   end
 end
