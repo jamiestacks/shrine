@@ -66,12 +66,13 @@
   display: flex;
   flex-direction: column;
   width: 20rem;
-  height: 10rem;
+  height: 9.6rem;
   border-radius: .5rem;
   background: #EE9A93;
   border: 1px solid #FBF0EF;
   justify-content: center;
   align-items: center;
+  object-fit: cover;
 
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
 }
@@ -99,13 +100,13 @@
 
 .members {
   width: 20rem;
-  height: 6rem;
+  height: 6.2rem;
   border-radius: .5rem;
   background: #EE9A93;
   border: 1px solid #FBF0EF;
   text-align: center;
   justify-content: center;
-  padding-top: 3%;
+  padding: 1%;
 
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
 }
