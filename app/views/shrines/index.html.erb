@@ -1,28 +1,29 @@
-<div class="back-cont d-flex flex-column justify-content-between align-items-center"
->
-  <div class="cool-box d-flex mb-4">
+<div class="back-cont d-flex flex-column justify-content-between align-items-center" style="min-height: calc(100vh - 70px);">
+  <div class="cool-box d-flex">
     <%= image_tag "logo.png", class: "cool-logo"%>
     <h1 id="cool-title">Your shrines</h1>
   </div>
   <% unless @invites.empty? %>
-    <div class="swiper" data-controller="swiper" id="swiper">
+    <div class="swiper" id="swiper">
       <div class="swiper-wrapper">
         <% @shrines.each_with_index do |shrine, index| %>
-          <div class="card swiper-slide">
-            <% if shrine.photo.attached? %>
-              <%= image_tag shrine.photo, class: "card-img-top", height: 250%>
-            <% else %>
-              <%= image_tag "johnyoung2", class: "card-img-top", height: 250%>
-            <% end %>
-            <div class="card-body">
-              <h5 class="card-title"><%= link_to "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}", shrine_path(shrine) %>: <%= shrine.dob %> - <%= shrine.dod %></h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <% if shrine.user == current_user %>
-                <%= link_to "Edit", edit_shrine_path(shrine) %>
-                <%= link_to "Delete", shrine_path(shrine), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <div class="card swiper-slide">
+              <%= link_to shrine_path(shrine) do %>
+              <% if shrine.photo.attached? %>
+                <%= image_tag shrine.photo, class: "card-img-top", height: 250%>
+              <% else %>
+                <%= image_tag "johnyoung2", class: "card-img-top", height: 250%>
+              <% end %>
+              <div class="card-body">
+                <br>
+                <br>
+                <h5 class="card-title"><%= "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}" %></h5>
+                <br>
+                <h6> <%= shrine.dob %> &nbsp;&nbsp <%= shrine.dod %> </h6>
+                <br>
+              </div>
               <% end %>
             </div>
-          </div>
         <% end %>
       </div>
       <div class="swiper-pagination"></div>
@@ -34,12 +35,35 @@
       </div>
     </div>
   <% end %>
+  <script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
 
-  <div class="sticky-footer">
-    <div class="cool-footer d-flex justify-content-evenly align-items-center">
-    <%= link_to "Create a Shrine", new_shrine_path, class:"bottom-link" %>
-    <p class="pin">|</p>
-    <%= link_to "Review Invites", shrine_users_path, class:"bottom-link" %>
-    </div>
-   </div>
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+  </script>
+
+  <div class="cool-footer d-flex justify-content-evenly align-items-center">
+  <%= link_to "Create a Shrine", new_shrine_path, class:"bottom-link" %>
+  <p class="pin">|</p>
+  <%= link_to "Review Invites", shrine_users_path, class:"bottom-link" %>
+  </div>
 </div>
