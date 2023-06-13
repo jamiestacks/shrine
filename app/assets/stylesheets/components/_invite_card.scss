@@ -1,20 +1,57 @@
-.invite-bigcard {
-display:flex
+.invite-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 2vmin;
 
+  border-style: solid;
+  border-color: $black;
+
+}
+
+.invites-title {
+  border-style: solid;
+  border-color: $green;
+}
+
+.invite-bigcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-style: solid;
+  border-color: $black;
 }
 
 .invite-cardhead {
-
+  border-style: solid;
+  border-color: $red;
 }
 
 .invite-card-actions {
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border-style: solid;
+  border-color: $black;
 }
 
 .invite-accept {
-
+  border-style: solid;
+  border-color: $green;
 }
 
 .invite-decline {
+  border-style: solid;
+  border-color: $red;
+}
 
+.invite-clickable {
+  text-decoration: none;
+  color: $font;
+  &:hover{
+    color: $font;
+  }
 }
