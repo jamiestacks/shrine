@@ -39,7 +39,7 @@ class ShrineUsersController < ApplicationController
     @user = User.find_by(email: @email)
     @invite = ShrineUser.new
     @invite.user = @user
-    @invite.shrine_id = params[:shrine_id]
+    @invite.shrine_id = shrine_user_params[:shrine_id]
     if @invite.save
       redirect_to shrine_path(params[:shrine_id])
       flash[:notice] = "Your Invitation was sent Successfully!"
@@ -50,8 +50,12 @@ class ShrineUsersController < ApplicationController
 
   def update
     shrine_user = ShrineUser.find(params[:id])
-    shrine_user.update(shrine_user_params)
-    redirect_to shrine_path(shrine_user.shrine_id)
+    shrine_user.update(status: params[:status])
+    if params[:status] == 'accept'
+      redirect_to shrine_path(shrine_user.shrine_id)
+    else
+      redirect_to shrine_users_path(shrine_user.shrine_id)
+    end
   end
 
   private

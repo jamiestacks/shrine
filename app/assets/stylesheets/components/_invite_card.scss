@@ -1,57 +1,82 @@
 .invite-card-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
   margin: 2vmin;
-
-  border-style: solid;
-  border-color: $black;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: stretch;
+  align-items: stretch;
 
 }
 
 .invites-title {
-  border-style: solid;
-  border-color: $green;
+  text-align: center;
+  color: $font;
+  border-style: none none solid none;
+  border-width: thin;
+  border-color: $font;
+}
+
+.invites-mid-container {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
 }
 
 .invite-bigcard {
+  margin-top: 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  border-style: solid;
-  border-color: $black;
+  border-radius: .5rem;
+  background: linear-gradient(135deg, $gray -15.33%, $brand 100%);
+  border: 1px solid $gray;
+  border-style: none solid solid none;
+  text-align: center;
+  justify-content: space-between;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+
+}
+
+.invite-avatar {
+  margin: 0.4rem;
+
 }
 
 .invite-cardhead {
-  border-style: solid;
-  border-color: $red;
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0;
+
+  }
 }
 
 .invite-card-actions {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  border-style: solid;
-  border-color: $black;
+  justify-content: flex-end;
+  margin: 0.25rem;
+  flex-grow: 1;
 }
 
 .invite-accept {
-  border-style: solid;
-  border-color: $green;
+  margin: 0.4rem;
+  border-radius: 50%;
+  background-color: $gray;
 }
 
 .invite-decline {
-  border-style: solid;
-  border-color: $red;
+  margin: 0.4rem;
+  border-radius: 50%;
+  background-color: $secondary;
 }
 
-.invite-clickable {
-  text-decoration: none;
-  color: $font;
-  &:hover{
-    color: $font;
-  }
+
+.thumbs {
+  width: 2rem;
 }

@@ -1,4 +1,5 @@
 <div class="invite-card-container ">
+
   <% if @invites.count == 0 %>
     <div class="invites-title">
       <h1>Shrine Invites</h1>
@@ -10,17 +11,24 @@
     <div class="invites-title">
       <h1>You have <%= pluralize(@invites.length, "invitation") %></h1>
     </div>
-    <% @invites.each do |invite| %>
-      <div class="invite-bigcard">
-        <div class="invite-cardhead">
-          <p><%= invite.shrine.first_name %> <%= invite.shrine.family_name %>'s Shrine</p>
-        </div>
-        <div class="invite-card-actions">
-          <div class="invite-accept" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <%= link_to "Accept", class: 'invite-clickable'%>
+    <div class="invites-mid-container">
+      <% @invites.each do |invite| %>
+        <div class="invite-bigcard">
+          <div class="invite-avatar">
+            <%= image_tag invite.shrine.photo, alt: "user", class: "avatar" %>
           </div>
-          <div class="invite-decline">
-            <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"}, class: 'invite-clickable' %>
+          <div class="invite-cardhead">
+              <p>Invitation to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %>'s Shrine</p>
+          </div>
+          <div class="invite-card-actions">
+            <div class="invite-accept" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <%= image_tag "check-mark.png", class: "thumbs " %>
+            </div>
+            <div class="invite-decline">
+              <%= link_to shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} do %>
+                <%= image_tag "remove.png", class: "thumbs " %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -51,5 +59,6 @@
         </div>
       </div>
     <% end %>
-  <% end %>
+  </div>
+<% end %>
 </div>
