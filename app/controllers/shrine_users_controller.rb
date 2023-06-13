@@ -45,8 +45,9 @@ class ShrineUsersController < ApplicationController
     params.require(:shrine_user).permit(:status, :shrine_id, :user_id)
   end
 
-  family_relations = ["Aunt", "Brother", "Brother-in-law", "Cousin", "Daughter",
-                      "Daughter-in-law", "Extended Family", "Father", "Father-in-law",
+  @family_relations = ["Aunt", "Brother", "Brother-in-law", "Cousin", "Daughter",
+                      "Daughter-in-law", "Ex-Husband", "Ex-Partner", "Ex-Wife",
+                      "Extended Family", "Father", "Father-in-law",
                       "Granddaughter", "Grandfather", "Grandmother", "Grandson",
                       "Great-Granddaughter", "Great-Grandfather", "Great-Grandmother",
                       "Great-Grandson", "Great-Uncle", "Great-Nephew", "Great-Niece",
@@ -56,7 +57,7 @@ class ShrineUsersController < ApplicationController
                       "Step-Grandmother", "Step-Grandson", "Step-Mother", "Step-Nephew",
                       "Step-Niece", "Step-Sister", "Step-Son", "Uncle"]
 
-  friend_relations = ["Business partner", "Colleague", "Childhood friend", "Friend",
+  @friend_relations = ["Business partner", "Colleague", "Childhood friend", "Friend",
                       "Gym buddy", "Neighbour", "School friend", "Sports teammate",
                       "Student", "Teacher", "University friend"]
 end
