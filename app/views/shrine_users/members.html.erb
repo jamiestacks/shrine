@@ -3,21 +3,23 @@
   <div class = "members-header-title"> <h1> <%= "#{@shrine.first_name}'s Shrine Members" %> </h1> </div>
 
   <div class = "users-list">
-    <% @shrine_creator.each do |user| %>
-        <div class = "user-preview">
-          <div class = "user-header">
-            <h5 class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></h5>
-            <p class = "status"> Creator </p>
-          </div>
-        </div>
-    <% end %>
+    <div class = "user-preview">
+        <%= cl_image_tag @shrine_creator.photo.key, class: "member-avatar" %>
+      <div class = "user-header">
+        <h5 class = "user-name"> <%= "#{@shrine_creator.first_name} #{@shrine_creator.family_name}" %></h5>
+        <p class = "status"> Creator </p>
+      </div>
+    </div>
 
     <% @sorted_shrine_members.each do |user| %>
-        <div class = "user-preview">
-          <div class = "user-header">
-            <h5 class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></h5>
-          </div>
+      <div class = "user-preview">
+          <%= cl_image_tag user.photo.key, class: "member-avatar" %>
+        <div class = "user-header">
+          <h5 class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></h5>
+          <p class = "member-relationship"><% shrine_user = ShrineUser.find_by(user_id: user.id, shrine_id: @shrine.id) %>
+          <%= "#{shrine_user.relationship}" %></p>
         </div>
+      </div>
     <% end %>
 
     <% @sorted_invited_users.each do |user| %>
@@ -31,11 +33,12 @@
   </div>
 
   <div class = "member-count">
-    <h5><%= "#{@shrine_creator.count + @sorted_shrine_members.count + @sorted_invited_users.count} members" %></h5>
+    <h5><%= "#{1 + @sorted_shrine_members.count + @sorted_invited_users.count} members" %></h5>
   </div>
 
-  <a href="<%= new_shrine_shrine_user_path(@shrine) %>" class="card-link">
+  <%= link_to new_shrine_shrine_user_path(@shrine), class: "card-link" do %>
     <div class = "invitecard-mini row">
       <h6>Invite others</h6>
     </div>
+  <% end %>
 </div>

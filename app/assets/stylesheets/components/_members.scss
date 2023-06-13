@@ -20,28 +20,29 @@
   gap: 10px;
   align-items: flex-start;
   width: 100%;
-  padding: 0 20px;
+  padding: 0px 20px;
 }
 
 .user-preview {
-  position: relative;
   align-items: center;
   width: 100%;
+  display: flex;
+  padding-bottom: 10px;
+  border-bottom: 0.75px solid #C03E35;
 }
 
-.user-preview::after {
-  content: "";
-  margin-bottom: 10px;
-  position: absolute;
-  align-items: center;
-  width: 95%;
-  height: 1px;
-  background-color: #EE9A93;
-  opacity: 0.8;
+
+.member-avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 0.5px solid #C03E35;
+  justify-content: left;
 }
 
 .user-header {
   justify-content: space-between;
+  margin-left: 15px;
 }
 
 .users-title {
@@ -60,7 +61,7 @@
 
 .member-count {
   color: #EE9A93;
-  margin-top: 80px;
+  padding: 4px;
 }
 
 .invitecard-mini {
@@ -70,7 +71,7 @@
   background: #C03E35;
   border: 1px solid #FBF0EF;
   text-align: center;
-  margin-top: 50px;
+  padding: 4px;
   h6 {
     position: absolute;
     top: 20%;

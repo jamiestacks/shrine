@@ -12,21 +12,73 @@ first_names = [
   "John", "Zoe", "Owen", "Hannah", "Jack", "Nora", "Luke", "Lily", "Max", "Jamie", "Hasna", "Eduardo"
 ]
 
-main_user = User.create(first_name: "Frank", family_name: "Reynolds", email: "frank123456@hotmail.com", password: "123456")
-
 puts 'Creating user db'
-count = 1
-10.times do
-  user = User.new(
-    first_name: first_names.sample,
-    family_name: "Connery",
-    email: "mynameis#{count}@hotmail.com",
-    password: "123456"
-  )
-  user.save
-  puts "created #{User.count} users"
-  count += 1
-end
+
+main_user = User.create(first_name: "Frank", family_name: "Connery", email: "frank123456@hotmail.com", password: "123456")
+main_user.photo.attach(io: File.open("./app/assets/images/main_user.jpg"), filename: "main_user.jpg")
+main_user.save
+
+user1 = User.create(
+  first_name: "Olivia",
+  family_name: "Morana",
+  email: "mynameis1@hotmail.com",
+  password: "123456"
+)
+
+user1.photo.attach(io: File.open("./app/assets/images/user1.jpg"), filename: "user1.jpg")
+user1.save
+
+user2 = User.create(
+  first_name: "Abigail",
+  family_name: "Connery",
+  email: "mynameis2@hotmail.com",
+  password: "123456"
+)
+
+user2.photo.attach(io: File.open("./app/assets/images/user2.jpg"), filename: "user2.jpg")
+user2.save
+
+user3 = User.create(
+  first_name: "Emma",
+  family_name: "Connery",
+  email: "mynameis3@hotmail.com",
+  password: "123456"
+)
+
+user3.photo.attach(io: File.open("./app/assets/images/user3.jpg"), filename: "user3.jpg")
+user3.save
+
+user4 = User.create(
+  first_name: "Alexander",
+  family_name: "Connery",
+  email: "mynameis4@hotmail.com",
+  password: "123456"
+)
+
+user4.photo.attach(io: File.open("./app/assets/images/user4.jpg"), filename: "user4.jpg")
+user4.save
+
+user5 = User.create(
+  first_name: "Jack",
+  family_name: "Connery",
+  email: "mynameis5@hotmail.com",
+  password: "123456"
+)
+
+user5.photo.attach(io: File.open("./app/assets/images/user5.jpg"), filename: "user5.jpg")
+user5.save
+
+user6 = User.create(
+  first_name: "Michael",
+  family_name: "Connery",
+  email: "mynameis6@hotmail.com",
+  password: "123456"
+)
+
+user6.photo.attach(io: File.open("./app/assets/images/user6.jpg"), filename: "user6.jpg")
+user6.save
+
+puts "created #{User.count} users"
 puts 'User data base created'
 
 #shrine seeding
@@ -42,6 +94,49 @@ main_shrine = Shrine.new(first_name: "Sean", family_name: "Connery", dob: "1930-
 file = File.open("./app/assets/images/johnprofile.jpg")
 main_shrine.photo.attach(io: file, filename: "johnprofile.jpg")
 main_shrine.save!
+
+puts "Created Shrine"
+
+#creating Shrine_Users
+
+puts "Creating ShrineUsers"
+
+ShrineUser.create(
+  user_id: 2,
+  shrine_id: 1,
+  status: "accept",
+  relationship: "Granddaughter"
+)
+
+ShrineUser.create(
+  user_id: 3,
+  shrine_id: 1,
+  status: "accept",
+  relationship: "Daughter"
+)
+
+ShrineUser.create(
+  user_id: 4,
+  shrine_id: 1,
+  status: "accept",
+  relationship: "Niece"
+)
+
+ShrineUser.create(
+  user_id: 5,
+  shrine_id: 1,
+  status: "accept",
+  relationship: "Grandson"
+)
+
+ShrineUser.create(
+  user_id: 6,
+  shrine_id: 1,
+  status: "accept",
+  relationship: "Son"
+)
+
+puts "Created ShrineUsers"
 
 #creating chapters
 
