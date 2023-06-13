@@ -5,7 +5,7 @@
     <h1 id="cool-title">Your shrines</h1>
   </div>
   <% unless @invites.empty? %>
-    <div class="swiper">
+    <div class="swiper" data-controller="swiper" id="swiper">
       <div class="swiper-wrapper">
         <% @shrines.each_with_index do |shrine, index| %>
           <div class="card swiper-slide">
@@ -34,31 +34,7 @@
       </div>
     </div>
   <% end %>
-  <%# <script type="module">
-    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
 
-    const swiper = new Swiper('.swiper', {
-      // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  });
-  </script> %>
   <div class="sticky-footer">
     <div class="cool-footer d-flex justify-content-evenly align-items-center">
     <%= link_to "Create a Shrine", new_shrine_path, class:"bottom-link" %>
