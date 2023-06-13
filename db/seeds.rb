@@ -68,7 +68,7 @@ chapter_2.photo.attach(io: File.open("./app/assets/images/seandofg.jpg"), filena
 chapter_2.save!
 
 chapter_3 = Chapter.new(
-  title: "Seans days in the navy",
+  title: "Sean's days in the navy",
   date_start: "1946-10-25",
   date_end: "1947-07-23",
   shrine_id: main_shrine.id,
@@ -165,7 +165,7 @@ story_1.save!
 
 story_2 = Story.new(
   title: "I want to follow Grandads Navy career",
-  body: "Grandad really inspired me to join the Navy. I'm not a great actor like him but I want to be a great sailor like him. He told me a great story of how he pranks the captain and got demoted to cleaning duties",
+  body: "Grandad really inspired me to join the Navy. I'm not a great actor like him but I want to be a great sailor like him. He told me a great story of how he pranked the captain and got demoted to cleaning duties",
   chapter_id: chapter_3.id,
   user_id: User.all.sample.id
 )
@@ -179,7 +179,7 @@ story_3 = Story.new(
   chapter_id: chapter_3.id,
   user_id: User.all.sample.id
 )
-story_2.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_4.jpg"), filename: "seanconnery_navy_4.jpg")
+story_3.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_4.jpg"), filename: "seanconnery_navy_4.jpg")
 story_3.save!
 
 puts "SEEDING HAS BEEN COMPLETED"
