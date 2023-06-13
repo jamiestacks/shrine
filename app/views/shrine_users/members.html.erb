@@ -29,4 +29,13 @@
         </div>
     <% end %>
   </div>
+
+  <div class = "member-count">
+    <h5><%= "#{@shrine_creator.count + @sorted_shrine_members.count + @sorted_invited_users.count} members" %></h5>
+  </div>
+
+  <a href="<%= new_shrine_shrine_user_path(@shrine) %>" class="card-link">
+    <div class = "invitecard-mini row">
+      <h6>Invite others</h6>
+    </div>
 </div>
