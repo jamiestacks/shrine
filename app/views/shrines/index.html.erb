@@ -4,6 +4,7 @@
     <h1 id="cool-title">Your shrines</h1>
   </div>
   <% unless @invites.empty? %>
+    <div class="pb-4">
     <div class="swiper" id="swiper">
       <div class="swiper-wrapper">
         <% @shrines.each_with_index do |shrine, index| %>
@@ -27,6 +28,7 @@
         <% end %>
       </div>
       <div class="swiper-pagination"></div>
+    </div>
     </div>
   <% else %>
     <div class='d-flex align-items-center'>
