@@ -3,8 +3,8 @@
     <div class = "photocard">
       <%= image_tag @shrine.photo, class: "shrine-img-top" %>
         <div class = "id-tag">
-          <h2><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}" %></h2>
-          <h4><%= "#{@shrine.dob.year} - #{@shrine.dod.year}" %></h4>
+          <h2 class = "name-tag"><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}" %></h2>
+          <h4 class = "date-tag"><%= "#{@shrine.dob.year} - #{@shrine.dod.year}" %></h4>
         </div>
     </div>
     <div class = "biocard">
