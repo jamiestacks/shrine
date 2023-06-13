@@ -1,0 +1,48 @@
+.chatroom-container {
+  width: 390px;
+  margin: auto;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: $gray;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+  padding-bottom: 15px;
+  h1 {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.messages-container {
+  background-color: $white;
+  height: 670px;
+  overflow: scroll;
+  overscroll-behavior: none;
+  padding-top: 60px;
+  padding: 30px;
+}
+
+.chatroom-input-container {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: $gray;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  textarea {
+    height: 40px;
+    align-self: left;
+    border: none;
+    border-radius: 40px;
+  }
+  .btn {
+    border: 1px solid black;
+    border-radius: 40px;
+    background-color: $brand;
+  }
+}
