@@ -26,13 +26,23 @@
       <% @stories.each do |story| %>
         <div class="story-card">
 
-          <div class="story-image">
-            <% if story.photos.attached? %>
-              <%= cl_image_tag story.photos.first.key %>
-            <% else %>
-              <%= image_tag "default" %>
-            <% end %>
+          <div class="swiper" id="story-image" data-controller="swiper">
+            <div class="swiper-wrapper">
+              <% story.photos.each do |photo| %>
+                <% if photo.key %>
+                  <div class="swiper-slide">
+                    <%= cl_image_tag photo.key %>
+                  </div>
+                <% else %>
+                  <div class="swiper-slide">
+                    <%= image_tag "default" %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="swiper-pagination"></div>
           </div>
+
 
           <div class="story-description">
             <div class = "story-title">
@@ -83,6 +93,7 @@
     </div>
   </div>
 </div>
+
 
 
 <%# <%= link_to "Edit Chapter", edit_chapter_path(@chapter) %>

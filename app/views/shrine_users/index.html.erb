@@ -1,9 +1,8 @@
-
 <div class="invite-card-container ">
 
   <% if @invites.count == 0 %>
     <div class="invites-title">
-      <h1>Invites to shrines</h1>
+      <h1>Shrine Invites</h1>
     </div>
     <div class="invite-card">
       <p>You don't have any pending invitations</p>
@@ -22,7 +21,7 @@
               <p>Invitation to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %> Shrine</p>
           </div>
           <div class="invite-card-actions">
-            <div class="invite-accept bounce-2">
+            <div class="invite-accept" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               <%= link_to shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch} do %>
                 <%= image_tag "check-mark.png", class: "thumbs " %>
               <% end %>
@@ -34,7 +33,33 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Shrine Invitation</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" data-controller = "relationship">
+                  <h2><%= "#{invite.shrine.first_name} #{invite.shrine.family_name}'s Shrine" %></h2>
+                  <input type="radio" id="friend" name="fav_language" value="Friend" data-relationship-target = "selectFriend" data-action = "change->relationship#showFriendship">
+                  <label for="friend">Friend</label><br>
+                  <input type="radio" id="family" name="fav_language" value="Family" data-relationship-target = "selectFamily" data-action = "change->relationship#showFamily">
+                  <label for="family">Family</label><br>
+                  <%= simple_form_for [invite], html: {data: {relationship_target: "form", action: "submit->relationship#handleSubmit"}} do |f| %>
+                    <%= f.input :status, input_html: {value: "accept"}, wrapper_html: {class: "d-none"} %>
+                    <%= f.input :relationship, collection: @family_relationships, prompt: "What were you to #{invite.shrine.first_name}?", id: "family", wrapper_html: {class: "d-none", data: {relationship_target: "familyInput"}} %>
+                    <%= f.input :relationship, collection: @friendships,  prompt: "How did you know #{invite.shrine.first_name}?", id: "friendships", wrapper_html: {class: "d-none", data: {relationship_target: "friendshipInput"}}  %>
+                    <%= f.submit "Join Shrine", class: 'btn-shrine'%>
+                  <% end %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
       <% end %>
-    </div>
   <% end %>
 </div>
