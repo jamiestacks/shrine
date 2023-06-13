@@ -19,7 +19,7 @@
                 <br>
                 <h5 class="card-title"><%= "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}" %></h5>
                 <br>
-                <h6> <%= shrine.dob %> &nbsp;&nbsp <%= shrine.dod %> </h6>
+                <h6> <%= shrine.dob.year %> &nbsp - &nbsp  <%= shrine.dod.year %> </h6>
                 <br>
               </div>
               <% end %>
