@@ -1,0 +1,124 @@
+.chatroom-container {
+  width: 390px;
+  margin: auto;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: $gray;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+  padding-bottom: 15px;
+  h1 {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.messages-container {
+  background-color: $white;
+  height: 636px;
+  overflow: scroll;
+  overscroll-behavior: none;
+  padding: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.chatroom-input-container {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: $gray;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  textarea {
+    height: 40px;
+    align-self: left;
+    border: none;
+    border-radius: 40px;
+  }
+  .btn {
+    border: 1px solid black;
+    border-radius: 40px;
+    background-color: $brand;
+  }
+}
+
+.chatroom-message {
+
+  .message-content {
+    max-width: 180px;
+  }
+  p {
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+
+
+.message-row {
+  margin-bottom: 20px;
+}
+
+// To style the message itself
+.sender-style, .receiver-style {
+  max-width: 90%;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 80px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.sender-style {
+  background-color: $brand;
+  text-align: right;
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 10px;
+  }
+  .timestamp {
+    width: 50px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .message-content {
+    margin-left: 10px
+  }
+  p {
+    text-align: left;
+  }
+}
+
+.receiver-style {
+  background-color: $white;
+  .bottom {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 10px;
+  }
+  .timestamp {
+    width: 50px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .message-content {
+    margin-right: 10px
+  }
+}
