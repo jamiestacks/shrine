@@ -1,12 +1,32 @@
-<h1>Your invites</h1>
-<% if @invites.count == 0 %>
-  <p>You don't have any pending invitations</p>
-  <% else %>
-  <% @invites.each do |invite| %>
-    <ol><li><%= invite.status %>
-    <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch } %>
-    <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
 
-    </li></ol>
+<div class="invite-card-container ">
+
+<% if @invites.count == 0 %>
+    <div class="invites-title">
+      <h1>Invites to shrines</h1>
+    </div>
+    <div class="invite-card">
+      <p>You don't have any pending invitations</p>
+    </div>
+  <% else %>
+      <div class="invites-title">
+        <h1>You have <%= pluralize(@invites.length, "invitation") %></h1>
+      </div>
+      <% @invites.each do |invite| %>
+      <div class="invite-bigcard">
+        <div class="invite-cardhead">
+            <p>You have being invited to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %> Shrine</p>
+        </div>
+          <div class="invite-card-actions">
+            <div class="invite-accept">
+                <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch}, class: 'invite-clickable'%>
+            </div>
+            <div class="invite-decline">
+                <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"}, class: 'invite-clickable' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

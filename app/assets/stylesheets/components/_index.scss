@@ -5,6 +5,7 @@
 @import "navbar";
 @import "timeline";
 @import "buttons";
+@import "invite_card";
 @import "chapter_show";
 
 
@@ -18,7 +19,7 @@
   margin-top: 20px;
   }
 
-  .cool-title {
+  #cool-title {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;

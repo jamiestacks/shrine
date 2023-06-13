@@ -28,6 +28,7 @@ class ShrineUsersController < ApplicationController
     @invite.shrine_id = params[:shrine_id]
     if @invite.save
       redirect_to shrine_path(params[:shrine_id])
+      flash[:notice] = "Your Invitation was sent Successfully!"
     else
       render :new, status: :unprocessable_entity
     end
