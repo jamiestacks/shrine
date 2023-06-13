@@ -17,6 +17,6 @@ class ShrineUser < ApplicationRecord
     "School friend", "Sports teammate", "Student", "Teacher", "University friend"]
 
   validates :user, uniqueness: { scope: :shrine, message: "You have already invited this user" }
-  validates :relationship, inclusion: { in: @relationships }
+  # validates :relationship, inclusion: { in: @relationships }
   enum :status, { pending: "0", accept: "1", decline: "2" }
 end

@@ -34,9 +34,13 @@ class ShrineUsersController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
   def update
     shrine_user = ShrineUser.find(params[:id])
-    shrine_user.update(status: params[:status])
+    shrine_user.update(status: params[:status, :relationship])
     redirect_to shrine_path(shrine_user.shrine_id)
   end
 

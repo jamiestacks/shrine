@@ -1,9 +1,8 @@
-
 <div class="invite-card-container ">
 
 <% if @invites.count == 0 %>
     <div class="invites-title">
-      <h1>Invites to shrines</h1>
+      <h1>Shrine Invites</h1>
     </div>
     <div class="invite-card">
       <p>You don't have any pending invitations</p>
@@ -15,11 +14,11 @@
       <% @invites.each do |invite| %>
       <div class="invite-bigcard">
         <div class="invite-cardhead">
-            <p>You have being invited to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %> Shrine</p>
+            <p><%= invite.shrine.first_name %> <%= invite.shrine.family_name %>'s Shrine</p>
         </div>
           <div class="invite-card-actions">
-            <div class="invite-accept">
-                <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch}, class: 'invite-clickable'%>
+            <div class="invite-accept" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <%= "Accept", class: 'invite-clickable'%>
             </div>
             <div class="invite-decline">
                 <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"}, class: 'invite-clickable' %>
@@ -30,3 +29,31 @@
     <% end %>
   <% end %>
 </div>
+
+
+
+ <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Shrine Invitation</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h2><%= "#{invite.shrine.first_name} #{invite.shrine.family_name}'s Shrine" %></h2>
+            <%= simple_form_for [invite], data: { controller: "form_objects", action: "changeSelection" } do |f| %>
+              <%= f.input :relationship_type, collection: ["Friend", "Family"], prompt: "Are you a Friend or Family?", id: "relation" %>
+               <div id="relationship-field" style="display: none;">
+                <%= turbo_frame_tag 'relationship-frame' do %>
+                  <%= f.input :relationship, label: 'Relationship Field' %>
+                  <%= f.submit "Join Shrine", link_to shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch}, class: 'btn-shrine'%>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
