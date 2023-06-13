@@ -1,7 +1,7 @@
 
 <div class="invite-card-container ">
 
-<% if @invites.count == 0 %>
+  <% if @invites.count == 0 %>
     <div class="invites-title">
       <h1>Invites to shrines</h1>
     </div>
@@ -9,24 +9,32 @@
       <p>You don't have any pending invitations</p>
     </div>
   <% else %>
-      <div class="invites-title">
-        <h1>You have <%= pluralize(@invites.length, "invitation") %></h1>
-      </div>
+    <div class="invites-title">
+      <h1>You have <%= pluralize(@invites.length, "invitation") %></h1>
+    </div>
+    <div class="invites-mid-container">
       <% @invites.each do |invite| %>
-      <div class="invite-bigcard">
-        <div class="invite-cardhead">
-            <p>You have being invited to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %> Shrine</p>
-        </div>
+        <div class="invite-bigcard">
+          <div class="invite-avatar">
+            <%= image_tag invite.shrine.photo, alt: "user", class: "avatar" %>
+          </div>
+          <div class="invite-cardhead">
+              <p>Invitation to <%= invite.shrine.first_name %> <%= invite.shrine.family_name %> Shrine</p>
+          </div>
           <div class="invite-card-actions">
-            <div class="invite-accept">
-                <%= link_to "Accept", shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch}, class: 'invite-clickable'%>
+            <div class="invite-accept bounce-2">
+              <%= link_to shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch} do %>
+                <%= image_tag "check-mark.png", class: "thumbs " %>
+              <% end %>
             </div>
             <div class="invite-decline">
-                <%= link_to "Decline", shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"}, class: 'invite-clickable' %>
+              <%= link_to shrine_user_path(invite.id, status: 'decline'), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} do %>
+                <%= image_tag "remove.png", class: "thumbs " %>
+              <% end %>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
 </div>
