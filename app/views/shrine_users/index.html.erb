@@ -41,14 +41,11 @@
           </div>
           <div class="modal-body">
             <h2><%= "#{invite.shrine.first_name} #{invite.shrine.family_name}'s Shrine" %></h2>
-            <%= simple_form_for [invite], data: { controller: "form_objects", action: "changeSelection" } do |f| %>
-              <%= f.input :relationship_type, collection: ["Friend", "Family"], prompt: "Are you a Friend or Family?", id: "relation" %>
-               <div id="relationship-field" style="display: none;">
-                <%= turbo_frame_tag 'relationship-frame' do %>
-                  <%= f.input :relationship, label: 'Relationship Field' %>
-                  <%= f.submit "Join Shrine", link_to shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch}, class: 'btn-shrine'%>
-                <% end %>
-              </div>
+            <%= simple_form_for [invite] do |f| %>
+              <%= f.input :relationship_type, collection: ["Family", "Friend"], prompt: "Are you a Friend or Family?", id: "relation" %>
+              <%= f.input :relationship, collection: ["Friend", "Family"], prompt: "What were you to #{invite.shrine.first_name}?", id: "family" %>
+              <%= f.input :relationship, collection: @friendships,  prompt: "How did you know #{invite.shrine.first_name}?", id: "friendships" %>
+              <%= f.submit "Join Shrine", link_to shrine_user_path(invite.id, status: 'accept'), data: {turbo_method: :patch}, class: 'btn-shrine'%>
             <% end %>
           </div>
         <div class="modal-footer">
