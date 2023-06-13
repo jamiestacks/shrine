@@ -55,7 +55,7 @@
 .chatroom-message {
 
   .message-content {
-    max-width: 200px;
+    max-width: 180px;
   }
   p {
     margin: 0;
@@ -96,6 +96,9 @@
   }
   .message-content {
     margin-left: 10px
+  }
+  p {
+    text-align: left;
   }
 }
 
