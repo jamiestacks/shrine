@@ -32,7 +32,7 @@
       <%= render "shared/flashes" %>
       <%= yield %>
     </main>
-    <% unless ['shrines', 'pages', 'messages', 'shrine_users', 'sessions'].include?(controller_name) && ['index', 'home', 'new'].include?(action_name) %>
+    <% unless ['shrines', 'pages', 'shrine_users', 'sessions'].include?(controller_name) && ['index', 'home', 'new'].include?(action_name) %>
     <footer>
       <%= render "shared/footer" %>
     </footer>
