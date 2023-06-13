@@ -58,3 +58,12 @@
     margin-top: 0;
     margin-bottom: 6px;
   }
+
+  .sticky-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#F2D2CF;
+    padding: 10px 0;
+  }
