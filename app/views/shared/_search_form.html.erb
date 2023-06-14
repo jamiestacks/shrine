@@ -1,8 +1,8 @@
-<%= form_with url: shrine_shrine_users_path, method: :post, class: "d-flex" do %>
+<%= form_with url: shrine_shrine_users_path(@shrine), method: :post, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Invite a user by email"
+    placeholder: "Search family & friends by email"
   %>
   <%= submit_tag "Invite", class: "btn btn-primary" %>
 <% end %>

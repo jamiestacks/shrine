@@ -11,6 +11,7 @@
       <p><%= @shrine.biography %></p>
     </div>
   </div>
+
   <a href="<%= shrine_chapters_path(@shrine) %>" class="card-link">
     <div class = "timelinecard">
       <h4><%= "#{@shrine.first_name}'s Timeline"  %> </h4>
@@ -23,9 +24,28 @@
       <%= image_tag "family.png", style: 'width: 3.5rem; height:3.5rem' %>
     </div>
   </a>
-  <a href="<%= new_shrine_shrine_user_path(@shrine) %>" class="card-link">
+  <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     <div class = "invitecard">
       <h6>Invite</h6>
     </div>
   </a>
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Shrine Invitation</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+              <h2><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}'s Shrine" %></h2>
+              <div class="invite-form">
+                <%= render "shared/search_form", shrine: [@shrine, @invite] %>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>

@@ -37,14 +37,17 @@ class ShrineUsersController < ApplicationController
   def create
     @email = params[:query]
     @user = User.find_by(email: @email)
+    @shrine = Shrine.find(params[:shrine_id])
     @invite = ShrineUser.new
     @invite.user = @user
-    @invite.shrine_id = params[:shrine_id]
+    @invite.shrine = @shrine
+
     if @invite.save
       redirect_to shrine_path(params[:shrine_id])
       flash[:notice] = "Your Invitation was sent Successfully!"
     else
-      render :new, status: :unprocessable_entity
+      render 'shrines/show', status: :unprocessable_entity
+      flash[:alert] = "The invite didn't work. Already a member?"
     end
   end
 
