@@ -1,5 +1,6 @@
 .chatroom-container {
-  width: 390px;
+  width: 100vw;
+  max-height: 100vh;
   margin: auto;
 }
 
@@ -21,7 +22,7 @@
 
 .messages-container {
   background-color: $white;
-  height: 636px;
+  height: 75vh;
   overflow: scroll;
   overscroll-behavior: none;
   padding: 30px;
@@ -41,12 +42,13 @@
   padding-right: 10px;
   textarea {
     height: 40px;
-    align-self: left;
+    padding-left: 20px;
     border: none;
     border-radius: 40px;
+    border: 1px solid $font;
   }
   .btn {
-    border: 1px solid black;
+    border: 1px solid $font;
     border-radius: 40px;
     background-color: $brand;
   }
