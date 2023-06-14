@@ -39,10 +39,28 @@
         <h6><%= "#{1 + @sorted_shrine_members.count + @sorted_invited_users.count} members" %></h6>
       </div>
 
-      <%= link_to new_shrine_shrine_user_path(@shrine), class: "card-link" do %>
-        <div class = "invitecard-mini row">
+        <div class = "invitecard-mini row" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           <p>Invite others</p>
         </div>
-      <% end %>
+
     </div>
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Shrine Invitation</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+              <h2><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}'s Shrine" %></h2>
+              <div class="invite-form">
+                <%= render "shared/search_form", shrine: [@shrine, @invite] %>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
