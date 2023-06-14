@@ -19,6 +19,8 @@ class ShrinesController < ApplicationController
 
   def show
     @shrine = Shrine.find(params[:id])
+    @invite = ShrineUser.new
+    @invite.shrine_id = Shrine.find(params[:id])
   end
 
   def new

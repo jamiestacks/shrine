@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :shrine_users, only: [:new, :create]
   end
 
-  resources :shrine_users, only: [:index, :update]
+  resources :shrine_users, only: [:index, :update, :new, :create]
 
   get "/shrines/:shrine_id/members", to: "shrine_users#members", as: "members"
 
