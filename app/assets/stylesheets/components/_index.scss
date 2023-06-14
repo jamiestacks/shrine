@@ -72,8 +72,9 @@
     bottom: 0;
     width: 100%;
     background-color:#F2D2CF;
-    padding: 10px 0;
+    padding: 1px 0;
     border-top: 2px solid #C03E35;;
+
   }
 
   a {
@@ -93,7 +94,11 @@
     text-align: center;
   }
 
+  .swiper-pagination {
+    position: static !important;
+    
   .shrine-member-count {
     text-align: center;
     font-family: body-font;
+
   }
