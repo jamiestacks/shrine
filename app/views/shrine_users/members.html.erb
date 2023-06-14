@@ -26,6 +26,7 @@
 
       <% @sorted_invited_users.each do |user| %>
           <div class = "user-preview">
+            <%= cl_image_tag user.photo.key, class: "member-avatar" %>
             <div class = "user-header">
               <p class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></p>
               <p class = "status"> Invited </p>

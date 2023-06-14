@@ -17,7 +17,9 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= "#{shrine.first_name.capitalize} #{shrine.family_name.capitalize}" %></h5>
                   <h6> <%= shrine.dob.year %> &nbsp - &nbsp  <%= shrine.dod.year %> </h6>
-                <p class = "shrine-member-count"><%= shrine.shrine_users.count %> members</p>
+
+                <p class = "shrine-member-count"><%= shrine.shrine_users.count + 1 %> members</p>
+
                 </div>
                   <div class="swiper-pagination"></div>
                 <% end %>
