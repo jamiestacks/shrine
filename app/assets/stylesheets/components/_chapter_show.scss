@@ -17,6 +17,7 @@
  margin-top: 20px;
  margin-bottom: 10px;
  text-align: center;
+ border-bottom-style: solid;
 }
 
 .chapter-date{
@@ -25,15 +26,18 @@
 }
 
 .add-story {
-  border: 1px solid black;
+
   text-align: center;
   padding: 10px;
   margin-bottom: 30px;
-}
-
-.add-story:hover {
-  background-color: black;
-  color: white;
+  background-color: $brand;
+  cursor: pointer;
+  border-radius: .5rem;
+  border: 1px solid #FBF0EF;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
 }
 
 .story-cards {
