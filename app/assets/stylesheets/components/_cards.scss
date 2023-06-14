@@ -2,17 +2,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  height: calc(100vh - 50px);
+  gap: 12px;
+  padding: 3vh 3vh 2vh 3vh;
+  display: block;
 }
 
 .photo-bio-card {
   overflow: auto;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 3%;
 }
 
 .photocard {
-  width: 20rem;
-  height: 15rem;
+  width: 100%;
+  height: 50%;
   border-radius: .5rem .5rem 0rem 0rem;
   border: 1px solid #200B09;
   border-style: solid solid none solid;
@@ -22,7 +26,7 @@
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
   .id-tag {
     width: 100%;
-    padding: 5px;
+    padding: 0px 5px;
   }
   .name-tag {
     position: absolute;
@@ -38,43 +42,50 @@
 }
 
 .shrine-img-top {
-  position: absolute;
   min-height: 100%;
   width: 100%
 }
 
 .biocard {
-  width: 20rem;
-  min-height: 4rem;
+  width: 100%;
+  min-height: 30%;
+  max-height: 50%;
   border-radius: 0rem 0rem .5rem .5rem;
   background: #F7E0DE;
   border: 1px solid #200B09;
   border-style: none solid solid solid;
+  font-family: body-font;
   font-size: 16px;
   padding: 0.4rem;
   text-align: center;
   justify-content: center;
   overflow: auto;
   filter: drop-shadow(1px 1px 1px rgba(0.25, 0.25, 0.25, 0.25));
-  .p {
+  p {
     margin-top: none;
     margin-bottom: none;
-    color: #E7ECEF;
+    color: #200B09;
     font: "playfair display SC", serif;
+    margin: 0 0 !important;
   }
 }
 
 .timelinecard {
   display: flex;
   flex-direction: column;
-  width: 20rem;
-  height: 9.6rem;
+  width: 100%;
+  height: 30%;
   border-radius: .5rem;
   background: $brand;
   border: 1px solid $white;
   justify-content: center;
   align-items: center;
   object-fit: cover;
+  margin-bottom: 3%;
+  padding: 5%;
+  h6 {
+    font-size: 1.6rem;
+  }
 
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
 }
@@ -83,32 +94,22 @@
   filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
 }
 
-.squarecard {
-  width: 9.6rem;
-  height: 9rem;
-  border-radius: .5rem;
-  background: #F2D2CF;
-  border: 1px solid #EE9A93;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
-}
-
-.squarecard:hover {
-  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
-}
-
 .members {
-  width: 20rem;
-  height: 6.2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 20%;
   border-radius: .5rem;
-  background: #EE9A93;
-  border: 1px solid #FBF0EF;
-  text-align: center;
+  background: $brand;
+  border: 1px solid $white;
   justify-content: center;
-  padding: 1%;
+  align-items: center;
+  object-fit: cover;
+  margin-bottom: 3%;
+  padding: 5%;
+  h6 {
+    font-size: 1.5rem;
+  }
 
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
 }
@@ -119,16 +120,15 @@
 
 .invitecard {
   display: flex;
-  width: 20rem;
-  height: 4rem;
+  width: 100%;
+  height: 10%;
   border-radius: .5rem;
   background: #C03E35;
   border: 1px solid #FBF0EF;
-  text-align: center;
+  align-items: center;
   justify-content: center;
-  h5 {
-    position: absolute;
-    top: 30%;
+  padding: 2%;
+  h6 {
     color: #EDE9E8;
   }
 
