@@ -49,12 +49,10 @@
                 <%= f.input :status, input_html: {value: "accept"}, wrapper_html: {class: "d-none"} %>
                 <%= f.input :relationship, collection: @family_relationships, prompt: "What were you to #{invite.shrine.first_name}?", id: "family", wrapper_html: {class: "d-none", data: {relationship_target: "familyInput"}} %>
                 <%= f.input :relationship, collection: @friendships,  prompt: "How did you know #{invite.shrine.first_name}?", id: "friendships", wrapper_html: {class: "d-none", data: {relationship_target: "friendshipInput"}}  %>
-                <%= f.submit "Join Shrine", class: 'btn-shrine'%>
+                <%= f.submit "Join Shrine", class: 'btn btn-primary btn-modal'%>
               <% end %>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+
           </div>
         </div>
       </div>
