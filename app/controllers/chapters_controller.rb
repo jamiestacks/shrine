@@ -16,15 +16,11 @@ class ChaptersController < ApplicationController
     @orderedstories = @stories.order(created_at: :desc)
   end
 
-  def new
-    @chapter = Chapter.new
-  end
-
   def create
     @chapter = Chapter.new(chapter_params)
     @chapter.shrine = @shrine
     if @chapter.save
-      redirect_to chapter_path(@chapter)
+      redirect_to shrine_chapters_path(@shrine)
     else
       render :new, status: :unprocessable_entity
     end
