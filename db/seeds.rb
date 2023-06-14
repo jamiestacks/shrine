@@ -243,9 +243,7 @@ chapter_10.photo.attach(io: File.open("./app/assets/images/johnyoung2.jpg"), fil
 chapter_10.save!
 
 # creating stories
-puts "Seeding stories for Seans time in the navy"
-
-picture_array = [""]
+puts "Seeding stories for Sean's time in the navy"
 
 story_1 = Story.new(
   title: "My best mate",
@@ -276,5 +274,13 @@ story_3 = Story.new(
 )
 story_3.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_4.jpg"), filename: "seanconnery_navy_4.jpg")
 story_3.save!
+
+story_4 = Story.new(
+  title: "I remember his time in the Navy",
+  body: "Sean Connery's naval service influenced his iconic charm. The daring sailor navigated storms with courage, captivating his fellow crewmates with wit and storytelling. His time at sea laid the foundation for his future success, as he transformed into the legendary James Bond, forever embodying the spirit of adventure and suave sophistication.",
+  chapter_id: chapter_3.id,
+  user_id: User.all.sample.id
+)
+story_4.save!
 
 puts "SEEDING HAS BEEN COMPLETED"
