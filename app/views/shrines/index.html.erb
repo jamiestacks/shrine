@@ -19,6 +19,7 @@
                   <h6> <%= shrine.dob.year %> &nbsp - &nbsp  <%= shrine.dod.year %> </h6>
 
                 <p class = "shrine-member-count"><%= shrine.shrine_users.count + 1 %> members</p>
+
                 </div>
                   <div class="swiper-pagination"></div>
                 <% end %>
@@ -35,7 +36,7 @@
   <% end %>
 
 </div>
-<div class="sticky-footer">
+<div class="sticky-footer mt-5">
   <div class="cool-footer d-flex justify-content-evenly align-items-center">
     <%= link_to "Create a Shrine", new_shrine_path, class:"bottom-link" %>
     <p class="pin">|</p>
