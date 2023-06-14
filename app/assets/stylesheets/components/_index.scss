@@ -69,7 +69,7 @@
     bottom: 0;
     width: 100%;
     background-color:#F2D2CF;
-    padding: 10px 0;
+    padding: 1px 0;
   }
 
   a {
@@ -89,7 +89,7 @@
     text-align: center;
   }
 
-  .yolo {
-    height: 400px;
-    overflow: auto;
+  .swiper-pagination {
+    position: static !important;
+
   }
