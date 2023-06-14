@@ -5,6 +5,8 @@ class Chapter < ApplicationRecord
 
   validates :title, :date_start, :date_end, presence: true
   validate :within_dob_dod
+  validates :photo, presence: true
+  validates :description, length: {minimum: 50}
 
   def within_dob_dod
     if date_start < self.shrine.dob

@@ -1,0 +1,26 @@
+#new_chapter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.chapter_title {
+  width: 100%;
+}
+
+.chapter_description {
+  width: 100%;
+}
+
+.chapter_photo {
+  width: 100%
+}
+
+.chapter-dates {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}

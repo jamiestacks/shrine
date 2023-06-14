@@ -25,40 +25,53 @@
     <div class="story-cards">
       <% @orderedstories.each do |story| %>
         <div class="story-card">
+          <% if story.photos.attached? %>
 
-          <div class="swiper" id="story-image" data-controller="swiper">
-            <div class="swiper-wrapper">
-              <% story.photos.each do |photo| %>
-                <% if photo.key %>
+            <div class="swiper" id="story-image" data-controller="swiper">
+              <div class="swiper-wrapper">
+                <% story.photos.each do |photo| %>
                   <div class="swiper-slide">
                     <%= cl_image_tag photo.key %>
                   </div>
-                <% else %>
-                  <div class="swiper-slide">
-                    <%= image_tag "default" %>
-                  </div>
                 <% end %>
-              <% end %>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-
-
-          <div class="story-description">
-            <div class = "story-title">
-              <h4><%= "#{story.title}" %></h4>
+              </div>
+              <div class="swiper-pagination"></div>
             </div>
 
-            <div class="story-body">
-              <p>"<%= "#{story.body}" %>"</p>
+
+            <div class="story-description">
+              <div class = "story-title">
+                <h4><%= "#{story.title}" %></h4>
+              </div>
+
+              <div class="story-body">
+                <p>"<%= "#{story.body}" %>"</p>
+              </div>
+
+              <div class="story-user-name" value="<% user = story.user %>">
+                <p><%= "#{user.first_name} #{user.family_name}"%></p>
+                <p><%= story.created_at.strftime("%e %B %Y, %H:%M") %></p>
+              </div>
             </div>
 
-            <div class="story-user-name" value="<% user = story.user %>">
-              <p><%= "#{user.first_name} #{user.family_name}"%></p>
-              <p><%= story.created_at.strftime("%e %B %Y, %H:%M") %></p>
-            </div>
-          </div>
+          <% else %>
 
+            <div class="story-description">
+              <div class = "story-title">
+                <h4><%= "#{story.title}" %></h4>
+              </div>
+
+              <div class="story-body">
+                <p>"<%= "#{story.body}" %>"</p>
+              </div>
+
+              <div class="story-user-name" value="<% user = story.user %>">
+                <p><%= "#{user.first_name} #{user.family_name}"%></p>
+                <p><%= story.created_at.strftime("%e %B %Y, %H:%M") %></p>
+              </div>
+            </div>
+
+          <% end %>
         </div>
       <% end %>
     </div>

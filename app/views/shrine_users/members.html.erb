@@ -1,44 +1,66 @@
 <div class = "members-cards-container">
 
-  <div class = "members-header-title"> <h1> <%= "#{@shrine.first_name}'s Shrine Members" %> </h1> </div>
+  <div class = "members-header-title">
+    <h1> <%= "#{@shrine.first_name}'s Shrine Members" %> </h1>
+  </div>
 
-  <div class = "users-list">
-    <div class = "user-preview">
-        <%= cl_image_tag @shrine_creator.photo.key, class: "member-avatar" %>
-      <div class = "user-header">
-        <h5 class = "user-name"> <%= "#{@shrine_creator.first_name} #{@shrine_creator.family_name}" %></h5>
-        <p class = "status"> Creator </p>
-      </div>
-    </div>
-
-    <% @sorted_shrine_members.each do |user| %>
+    <div class = "users-list">
       <div class = "user-preview">
-          <%= cl_image_tag user.photo.key, class: "member-avatar" %>
+          <%= cl_image_tag @shrine_creator.photo.key, class: "member-avatar" %>
         <div class = "user-header">
-          <h5 class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></h5>
-          <p class = "member-relationship"><% shrine_user = ShrineUser.find_by(user_id: user.id, shrine_id: @shrine.id) %>
-          <%= "#{shrine_user.relationship}" %></p>
+          <p class = "user-name"> <%= "#{@shrine_creator.first_name} #{@shrine_creator.family_name}" %></p>
+          <p class = "status"> Creator </p>
         </div>
       </div>
-    <% end %>
 
-    <% @sorted_invited_users.each do |user| %>
+      <% @sorted_shrine_members.each do |user| %>
         <div class = "user-preview">
+            <%= cl_image_tag user.photo.key, class: "member-avatar" %>
           <div class = "user-header">
-            <h5 class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></h5>
-            <p class = "status"> Invited </p>
+            <p class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></p>
+            <p class = "status"><% shrine_user = ShrineUser.find_by(user_id: user.id, shrine_id: @shrine.id) %>
+            <%= "#{shrine_user.relationship}" %></p>
           </div>
         </div>
-    <% end %>
-  </div>
+      <% end %>
 
-  <div class = "member-count">
-    <h5><%= "#{1 + @sorted_shrine_members.count + @sorted_invited_users.count} members" %></h5>
-  </div>
-
-  <%= link_to new_shrine_shrine_user_path(@shrine), class: "card-link" do %>
-    <div class = "invitecard-mini row">
-      <h6>Invite others</h6>
+      <% @sorted_invited_users.each do |user| %>
+          <div class = "user-preview">
+            <div class = "user-header">
+              <p class = "user-name"> <%= "#{user.first_name} #{user.family_name}" %></p>
+              <p class = "status"> Invited </p>
+            </div>
+          </div>
+      <% end %>
     </div>
-  <% end %>
+
+    <div class = "footer-content">
+      <div class = "member-count">
+        <h6><%= "#{1 + @sorted_shrine_members.count + @sorted_invited_users.count} members" %></h6>
+      </div>
+
+        <div class = "invitecard-mini row" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <p>Invite others</p>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Shrine Invitation</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+              <h2><%= "#{@shrine.first_name.capitalize} #{@shrine.family_name.capitalize}'s Shrine" %></h2>
+              <div class="invite-form">
+                <%= render "shared/search_form", shrine: [@shrine, @invite] %>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
