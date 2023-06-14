@@ -13,6 +13,7 @@ class ChaptersController < ApplicationController
   def show
     @story = Story.new
     @stories = Story.where(chapter_id: @chapter)
+    @shrine = @chapter.shrine
   end
 
   def new
