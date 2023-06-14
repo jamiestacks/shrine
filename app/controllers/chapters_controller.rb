@@ -14,6 +14,7 @@ class ChaptersController < ApplicationController
     @story = Story.new
     @stories = Story.where(chapter_id: @chapter)
     @shrine = @chapter.shrine
+    @orderedstories = @stories.order(created_at: :desc)
   end
 
   def new

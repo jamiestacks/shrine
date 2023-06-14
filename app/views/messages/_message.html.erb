@@ -1,7 +1,15 @@
- <div id="message-<%= message.id %>">
-    <small>
-      <strong class = "author"><%= message.user.first_name %></strong>
-      <i class = "timestamp"><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-    </small>
-      <p class = "message-content"><%= message.content %></p>
-</div>
+ <div class="chatroom-message" id="message-<%= message.id %>">
+    <div class="top">
+      <small class="author"><%= message.user.first_name %></small>
+    </div>
+
+    <div class="bottom">
+      <div class="timestamp">
+        <small><%= message.created_at.strftime("%H:%M") %></small>
+        <small><%= message.created_at.strftime("%e %b") %></small>
+      </div>
+      <div class="message-content">
+        <p><%= message.content %></p>
+      </div>
+    </div>
+  </div>

@@ -14,7 +14,8 @@ class MessagesController < ApplicationController
     if @message.save
       ShrineChannel.broadcast_to(
         @shrine,
-        render_to_string(partial: "message", locals: { message: @message })
+        message: render_to_string(partial: "message", locals: { message: @message, user: current_user }),
+        sender_id: @message.user.id
       )
       head :ok
     else
