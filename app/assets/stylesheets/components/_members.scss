@@ -3,14 +3,14 @@
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 50px);
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
 }
 
 .members-header-title {
   color: #C03E35;
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 10px;
+  border-bottom: 1px solid #C03E35;
 }
 
 .users-list {
@@ -21,6 +21,8 @@
   align-items: flex-start;
   width: 100%;
   padding: 0px 20px;
+  max-height: 80vh;
+  overflow: scroll;
 }
 
 .user-preview {
@@ -29,6 +31,7 @@
   display: flex;
   padding-bottom: 10px;
   border-bottom: 0.75px solid #C03E35;
+  gap: 3.5vh;
 }
 
 
@@ -42,26 +45,36 @@
 
 .user-header {
   justify-content: space-between;
-  margin-left: 15px;
-}
-
-.users-title {
-  align-self: flex-start;
-  color: #C03E35;
+  text-align: center;
+  width: 175px;
 }
 
 .user-name {
   color: #200B09;
   align-self: flex-end;
+  font-size: 22px;
+  text-align: center;
+  font-family: headers-font;
 }
 
 .status {
-  font-size: 14px;
+  font-size: 16px;
+  text-align: center;
+  font-family: body-font;
+}
+
+.footer-content {
+  width: 95%;
+  align-items: center;
+  border-top: 1px solid #C03E35;
+  display: flex;
+  flex-direction: column;
 }
 
 .member-count {
   color: #EE9A93;
   padding: 4px;
+  margin-top: 0.5vh;
 }
 
 .invitecard-mini {
@@ -71,11 +84,12 @@
   background: #C03E35;
   border: 1px solid #FBF0EF;
   text-align: center;
-  padding: 4px;
-  h6 {
-    position: absolute;
-    top: 20%;
+  padding: 6px 0px 6px 0px;
+  margin-bottom: 0.5vh;
+  p {
+    position: relative;
     color: #EDE9E8;
+    justify-content: center;
   }
 
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
