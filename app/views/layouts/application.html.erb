@@ -19,6 +19,7 @@
         color: #200B09;
       }
     </style>
+    <%= favicon_link_tag asset_path('logo.png') %>
   </head>
   <body>
     <% if ['shrines', 'shrine_users'].include?(controller_name) && ['index', 'new'].include?(action_name) %>
@@ -30,7 +31,7 @@
       <%= render "shared/flashes" %>
       <%= yield %>
     </main>
-    <% unless (['shrines', 'pages', 'sessions'].include?(controller_name) && ['index', 'home', 'new', 'create'].include?(action_name)) || (['shrine_users'].include?(controller_name) && ['show'].include?(action_name)) %>
+    <% unless (['shrines', 'pages', 'sessions'].include?(controller_name) && ['index', 'home', 'new', 'create'].include?(action_name)) || (['shrine_users'].include?(controller_name) && ['index'].include?(action_name)) %>
       <footer>
         <%= render "shared/footer" %>
       </footer>

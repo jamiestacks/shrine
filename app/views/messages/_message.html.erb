@@ -1,15 +1,17 @@
- <div class="chatroom-message" id="message-<%= message.id %>">
-    <div class="top">
-      <small class="author"><%= message.user.first_name %></small>
-    </div>
+<div class="chatroom-message" id="message-<%= message.id %>">
 
-    <div class="bottom">
-      <div class="timestamp">
-        <small><%= message.created_at.strftime("%H:%M") %></small>
-        <small><%= message.created_at.strftime("%e %b") %></small>
-      </div>
-      <div class="message-content">
-        <p><%= message.content %></p>
-      </div>
-    </div>
+  <div class="messages-avatar">
+    <% if message.user.photo.attached? %>
+      <%= cl_image_tag message.user.photo.key %>
+    <% else %>
+      <%= image_tag "default" %>
+    <% end %>
   </div>
+
+  <div class="messages-words">
+    <p class="timestamp"><%= message.created_at.strftime("%e %b, %H:%M") %></p>
+    <p class="message-content"><%= message.content %></p>
+  </div>
+
+
+</div>
