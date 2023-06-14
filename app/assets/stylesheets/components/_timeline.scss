@@ -29,6 +29,7 @@
   position: relative;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-bottom: 1px solid #C03E35;
 }
 
 .timeline-header__title {
@@ -45,7 +46,7 @@
   margin-bottom: 30px;
   a {
   border: 1px solid black;
-  color: black;
+  color: #EDE9E8;
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -85,6 +86,7 @@
 }
 
 .timeline-title {
+  // color: #C03E35;
   text-align: center;
   background: rgb(227, 222, 222);
   width: 95px;
@@ -122,6 +124,7 @@
 }
 
 .timeline-date-icons {
+  color: #C03E35;
   display: flex;
   justify-content: space-between;
   align-items: center;
