@@ -4,10 +4,8 @@
     <h2 class="timeline-header__title"><%= @shrine.first_name %> <%= @shrine.family_name %>'s Timeline</h2>
   </div>
 
-  <div class="new_chapter">
-    <%= link_to new_shrine_chapter_path(@shrine) do %>
-      <span><i class="fa-solid fa-plus"></i> Add a new chapter</span>
-    <% end %>
+  <div class="new_chapter" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <span><i class="fa-solid fa-plus"></i> Add a new chapter</span>
   </div>
 
   <div class= "timeline">
@@ -57,4 +55,33 @@
     <% end %>
   </div>
 
+</div>
+
+
+<%# new chapter modal %>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Add a new Chapter</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for [ @shrine, @chapter] do |f| %>
+            <%= f.input :title %>
+            <%= f.input :description, label: "Add a short description of this chapter" %>
+            <div class="chapter-dates">
+              <%= f.input :date_start, label: "Start Date", as: :string, input_html: { data: { controller: "datepicker" } } %>
+              <%= f.input :date_end, label: "End Date", as: :string, input_html: { data: { controller: "datepicker" } } %>
+            </div>
+            <%= f.input :photo, label: "Picture to represent this chapter", as: :file %>
+            <%= f.submit "Create Chapter", class: "btn btn-secondary" %>
+          <% end %>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
