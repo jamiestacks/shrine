@@ -1,22 +1,35 @@
-<div class="shrine" data-controller="shrine-subscription" data-shrine-subscription-shrine-id-value="<%= @shrine.id %>">
 
-  <h1 class = "chat-header"><%= @shrine.first_name %>'s Space</h1>
+<div class="col-6 chatroom-container">
 
-  <div data-shrine-subscription-target="messages">
+<div class="shrine" data-controller="shrine-subscription" data-shrine-subscription-shrine-id-value="<%= @shrine.id %>" data-shrine-subscription-current-user-id-value="<%= current_user.id %>">
+
+  <div class = "chat-header">
+    <h1>Space to chat about <%= @shrine.first_name %></h1>
+  </div>
+
+  <div class="messages-container" data-shrine-subscription-target="messages">
     <% @shrine.messages.each do |message| %>
-      <% if message.user == current_user %>
-        <%= render "user_message", message: message %>
-      <% else %>
-        <%= render "message", message: message %>
-      <% end %>
+
+
+      <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+          <%= render "message", message: message %>
+        </div>
+      </div>
+
+
+
+
     <% end %>
   </div>
 
-  <div class = "message-send">
+  <div class="chatroom-input-container">
     <%= simple_form_for [@shrine, @message], html: { data: { action: "turbo:submit-end->shrine-subscription#resetForm" }, class: "d-flex"} do |f| %>
       <%= f.input :content, label: false, placeholder: "Add your message here", wrapper_html: {class: "flex-grow-1"} %>
       <%= f.submit "Send", class: "btn btn-shrine mb-3" %>
     <% end %>
   </div>
+
+</div>
 
 </div>

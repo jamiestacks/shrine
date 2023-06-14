@@ -5,12 +5,13 @@
       <%= image_tag "home.png", class: "avatar" %>
     <% end %>
     <% if @shrine.present? %>
-      <%= link_to shrine_chapters_path(@shrine) do %>
+      <%= link_to shrine_path(@shrine) do %>
         <%= image_tag "logo.png", class: "avatar" %>
       <% end %>
-      <%= link_to shrine_messages_path(@shrine) do %>
-        <%= image_tag "message.png", class: "avatar" %>
-      <% end %>
+      <% else %>
+      <%= image_tag "logo.png", class: "avatar" %>
     <% end %>
-  </div>
+    <%= link_to shrine_messages_path(@shrine) do %>
+      <%= image_tag "message.png", class: "avatar" %>
+    <% end %>
 </footer>

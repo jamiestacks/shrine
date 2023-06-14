@@ -39,7 +39,7 @@ class ShrineUsersController < ApplicationController
     @user = User.find_by(email: @email)
     @invite = ShrineUser.new
     @invite.user = @user
-    @invite.shrine_id = shrine_user_params[:shrine_id]
+    @invite.shrine_id = params[:shrine_id]
     if @invite.save
       redirect_to shrine_path(params[:shrine_id])
       flash[:notice] = "Your Invitation was sent Successfully!"
