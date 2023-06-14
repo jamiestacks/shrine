@@ -22,6 +22,7 @@
                 <br>
                 <h6> <%= shrine.dob.year %> &nbsp - &nbsp  <%= shrine.dod.year %> </h6>
                 <br>
+                <p class = "shrine-member-count"><%= shrine.shrine_users.count %> members</p>
               </div>
               <% end %>
             </div>
@@ -33,7 +34,7 @@
   <% else %>
     <div class='d-flex align-items-center'>
       <div>
-        <h1>You have no shrines, lucky person!</h1>
+        <h1>You're not a member of any Shrines yet. Click below to Create a Shrine, or Review your Invitations.</h1>
       </div>
     </div>
   <% end %>
