@@ -20,7 +20,7 @@
   border-radius: .5rem;
   margin-top: 20px;
   margin-bottom: 30px;
-
+  border: 2px solid #C03E35;
   }
 
   #cool-title {
@@ -61,6 +61,8 @@
     font-weight: 900;
     margin-top: 0;
     margin-bottom: 6px;
+    align-items: center;
+    color: #C03E35;
   }
 
   .sticky-footer {
@@ -70,6 +72,7 @@
     width: 100%;
     background-color:#F2D2CF;
     padding: 10px 0;
+    border-top: 2px solid #C03E35;;
   }
 
   a {

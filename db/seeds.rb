@@ -71,7 +71,7 @@ user5.save
 user6 = User.create(
   first_name: "Michael",
   family_name: "Connery",
-  email: "mynameis6@hotmail.com",
+  email: "michael@connery.com",
   password: "123456"
 )
 
@@ -237,7 +237,7 @@ chapter_10 = Chapter.new(
   date_start: "2020-10-31",
   date_end: "2020-10-31",
   shrine_id: main_shrine.id,
-  description: "Sean had dementia before he passed away. Connery died in his sleep on 31 October 2020, aged 90, at his home in the Lyford Cay community of Nassau in the Bahamas."
+  description: "Sean had dementia before he passed away. He passed away in his sleep on 31 October 2020, aged 90, at his home in the Lyford Cay community of Nassau in the Bahamas."
 )
 chapter_10.photo.attach(io: File.open("./app/assets/images/johnyoung2.jpg"), filename: "johnyoung2.jpg")
 chapter_10.save!
@@ -257,7 +257,7 @@ story_1.photos.attach(io: File.open("./app/assets/images/seanconnery_navy_6.jpg"
 story_1.save!
 
 story_2 = Story.new(
-  title: "I want to follow Grandads Navy career",
+  title: "I want to follow Grandad's Navy career",
   body: "Grandad really inspired me to join the Navy. I'm not a great actor like him but I want to be a great sailor like him. He told me a great story of how he pranked the captain and got demoted to cleaning duties",
   chapter_id: chapter_3.id,
   user_id: User.all.sample.id
