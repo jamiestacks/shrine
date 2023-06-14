@@ -53,8 +53,8 @@ class ShrineUsersController < ApplicationController
 
   def update
     shrine_user = ShrineUser.find(params[:id])
-    shrine_user.update(status: params[:status])
-    if params[:status] == 'accept'
+    shrine_user.update(shrine_user_params)
+    if params[:shrine_user][:status] == 'accept'
       redirect_to shrine_path(shrine_user.shrine_id)
     else
       redirect_to shrine_users_path(shrine_user.shrine_id)

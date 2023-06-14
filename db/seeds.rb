@@ -147,7 +147,7 @@ chapter_1 = Chapter.new(
   date_start: "1930-08-25",
   date_end: "1930-08-25",
   shrine_id: main_shrine.id,
-  description: "Thomas Connery was born at the Royal Maternity Hospital in Edinburgh, Scotland, on 25 August 1930; he was named after his paternal grandfather. He was brought up at No. 176 Fountainbridge, a block which has since been demolished.[8] His mother, Euphemia McBain 'Effie' McLean, was a cleaning woman."
+  description: "Thomas Connery was born at the Royal Maternity Hospital in Edinburgh, Scotland, on 25 August 1930; he was named after his paternal grandfather. He was brought up at No. 176 Fountainbridge, a block which has since been demolished.His mother, Euphemia McBain 'Effie' McLean, was a cleaning woman."
 )
 chapter_1.photo.attach(io: File.open("./app/assets/images/johnmom.jpeg"), filename: "johnmom.jpeg")
 chapter_1.save!
