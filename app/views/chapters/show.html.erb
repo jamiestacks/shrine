@@ -97,12 +97,10 @@
             <%= f.input :title %>
             <%= f.input :body, label: "Tell everyone your story", as: :text %>
             <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Add any pictures that are associated to this story"%>
-            <%= f.submit "Share Story", class: "btn btn-warning" %>
+            <%= f.submit "Share Story", class: "btn btn-primary" %>
           <% end %>
         </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-      </div>
+
     </div>
   </div>
 </div>
