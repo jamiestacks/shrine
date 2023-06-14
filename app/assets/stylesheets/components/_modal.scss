@@ -1,0 +1,41 @@
+#staticBackdrop {
+
+}
+
+.modal-dialog {
+
+}
+
+.modal-content {
+  color:$font;
+
+}
+
+
+.modal-header {
+  background: linear-gradient(14deg, $white 50%, $brand 150%);
+  border-style:none;
+}
+
+.modal-title {
+
+  color:$font;
+}
+
+.modal-body {
+  border-style:none;
+  background-color: $gray;
+  background: linear-gradient(200deg, $white 50%, $brand 120%);
+
+}
+
+.btn-modal{
+  order: 1px solid $font;
+  border-style: none solid solid none;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+#friend, #family {
+  margin: 0.7rem;
+  accent-color: $secondary;
+}
