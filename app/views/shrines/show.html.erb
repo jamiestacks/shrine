@@ -11,6 +11,7 @@
       <p><%= @shrine.biography %></p>
     </div>
   </div>
+
   <a href="<%= shrine_chapters_path(@shrine) %>" class="card-link">
     <div class = "timelinecard">
       <h4><%= "#{@shrine.first_name}'s Timeline"  %> </h4>
@@ -23,7 +24,7 @@
       <%= image_tag "family.png", style: 'width: 3.5rem; height:3.5rem' %>
     </div>
   </a>
-  <a href="<%= new_shrine_shrine_user_path(@shrine) %>" class="card-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     <div class = "invitecard">
       <h5>Invite</h5>
     </div>

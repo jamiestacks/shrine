@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :shrines do
     resources :chapters, only: [:index, :new, :create]
     resources :messages, only: [:index, :create]
-    resources :shrine_users, only: [:new, :create]
+    resources :shrine_users, only: [:create]
   end
 
-  resources :shrine_users, only: [:index, :update, :new, :create]
+  resources :shrine_users, only: [:index, :update]
 
   get "/shrines/:shrine_id/members", to: "shrine_users#members", as: "members"
 
