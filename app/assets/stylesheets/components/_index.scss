@@ -99,6 +99,11 @@
     color: inherit;
   }
 
+
+  .swiper-pagination-bullet-active {
+    background-color: $secondary !important;
+  }
+
   #shrine-member-count {
     text-align: center;
     font-family: body-font;
@@ -121,4 +126,8 @@
   .button-link2 {
     width: 40%;
     text-align: center;
+  }
+
+  .flatpickr-mobile {
+    width: 50%;
   }
