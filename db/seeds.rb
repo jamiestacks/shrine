@@ -165,7 +165,7 @@ chapter_2 = Chapter.new(
   date_start: "1935-04-29",
   date_end: "1945-05-06",
   shrine_id: main_shrine.id,
-  description: "Although he was small in primary school, he grew rapidly around the age of 12, reaching his full adult height of 6 ft 2 in (188 cm) at 18. Connery was known during his teen years as 'Big Tam', and he said that he lost his virginity to an adult woman in an ATS uniform at the age of 14. He had an Irish childhood friend named Séamus; when the two were together, those who knew them both called Connery by his middle name Sean, emphasising the alliteration of the two names. Since then Connery preferred to use his middle name"
+  description: "Although he was small in primary school, he grew rapidly around the age of 12, reaching his full adult height of 6 ft 2 in (188 cm) at 18. Connery was known during his teen years as 'Big Tam', and he said that he lost his virginity to an adult woman in an ATS uniform at the age of 14. He had an Irish childhood friend named Séamus; when the two were together, those who knew them both called Connery by his middle name Sean, emphasising the alliteration of the two names. Since then Connery preferred to use his middle name."
 )
 chapter_2.photo.attach(io: File.open("./app/assets/images/seandofg.jpg"), filename: "seandofg.jpg")
 chapter_2.save!
