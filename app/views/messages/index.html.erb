@@ -4,21 +4,17 @@
 <div class="shrine" data-controller="shrine-subscription" data-shrine-subscription-shrine-id-value="<%= @shrine.id %>" data-shrine-subscription-current-user-id-value="<%= current_user.id %>">
 
   <div class = "chat-header">
-    <h1>Space to chat about <%= @shrine.first_name %></h1>
+    <h1>Remembering <%= @shrine.first_name %></h1>
   </div>
 
   <div class="messages-container" data-shrine-subscription-target="messages">
     <% @shrine.messages.each do |message| %>
-
 
       <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
         <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
           <%= render "message", message: message %>
         </div>
       </div>
-
-
-
 
     <% end %>
   </div>

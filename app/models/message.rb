@@ -8,3 +8,5 @@ class Message < ApplicationRecord
     user.id == a_user.id
   end
 end
+
+puts Date.today
