@@ -22,7 +22,7 @@
 
 .messages-container {
   background-color: $white;
-  height: 75vh;
+  height: 80vh;
   overflow: scroll;
   overscroll-behavior: none;
   padding: 30px;
@@ -39,8 +39,8 @@
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
-  position: absolute;
-  bottom: 40px;
+  position: sticky;
+  bottom: 0;
   textarea {
     height: 40px;
     padding-left: 20px;
