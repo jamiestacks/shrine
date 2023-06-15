@@ -1,6 +1,7 @@
 
 .modal-content {
   color:$font;
+  border-radius: .5rem;
 
 }
 
@@ -8,6 +9,7 @@
 .modal-header {
   background: linear-gradient(14deg, $white 50%, $brand 150%);
   border-style:none;
+  border-radius: .5rem;
 }
 
 .modal-title {
@@ -19,7 +21,7 @@
   border-style:none;
   background-color: $gray;
   background: linear-gradient(200deg, $white 50%, $brand 120%);
-
+  border-radius: .5rem;
 }
 
 .btn-modal{
