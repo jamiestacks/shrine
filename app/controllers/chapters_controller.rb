@@ -22,6 +22,7 @@ class ChaptersController < ApplicationController
     @chapter.shrine = @shrine
     if @chapter.save
       redirect_to shrine_chapters_path(@shrine)
+      flash[:notice] = "Your Chapter was created Successfully!"
     else
       render :new, status: :unprocessable_entity
     end
