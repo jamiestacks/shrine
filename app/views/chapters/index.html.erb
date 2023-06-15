@@ -3,9 +3,10 @@
   <div class="timeline-header">
     <h2 class="timeline-header__title"><%= @shrine.first_name %> <%= @shrine.family_name %>'s Timeline</h2>
   </div>
-
-  <div class="new_chapter" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    <span><i class="fa-solid fa-plus"></i> Add a new chapter</span>
+  <div class="btn-new-chapter-container">
+    <div class="new_chapter add-story" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <span><i class="fa-solid fa-plus"></i> Add a new chapter</span>
+    </div>
   </div>
 
   <div class= "timeline">
@@ -76,12 +77,10 @@
               <%= f.input :date_end, label: "End Date", as: :string, input_html: { data: { controller: "datepicker" } } %>
             </div>
             <%= f.input :photo, label: "Picture to represent this chapter", as: :file %>
-            <%= f.submit "Create Chapter", class: "btn btn-secondary" %>
+            <%= f.submit "Create Chapter", class: "btn btn-modal" %>
           <% end %>
         </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-      </div>
+
     </div>
   </div>
 </div>
