@@ -83,9 +83,9 @@ puts 'User data base created'
 
 #shrine seeding
 
-puts 'Creating shrine'
+puts 'Creating shrines'
 
-# Create new instance of Shrine
+# Create new instance of Shrines
 
 bio = "Sean Connery, the legendary James Bond, defined suave sophistication on the silver screen. With his irresistible charm and iconic voice, he remains an enduring symbol of cinematic excellence and the epitome of a true Scottish legend."
 
@@ -95,7 +95,15 @@ file = File.open("./app/assets/images/johnprofile.jpg")
 main_shrine.photo.attach(io: file, filename: "johnprofile.jpg")
 main_shrine.save!
 
-puts "Created Shrine"
+second_bio = "Christopher Lee was one of the defining characters of cinema for over 60 years. His iconic roles as Bram Stoker's Dracula, George Lucas' Count Dooku, and Tolkien's Saruman helped to cement his legacy in the arts throughout the generations."
+
+second_shrine = Shrine.new(first_name: "Christopher", family_name: "Lee", dob: "1922-05-27", dod: "2015-06-07", biography: second_bio, user_id: user1.id)
+# Open the image file
+file = File.open("./app/assets/images/christopher_lee.jpg")
+second_shrine.photo.attach(io: file, filename: "christopher_lee.jpg")
+second_shrine.save!
+
+puts "Created Shrines"
 
 #creating Shrine_Users
 
