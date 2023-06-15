@@ -20,7 +20,7 @@
   background-color: #F2D2CF;
   border-radius: .5rem;
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   border: 2px solid #C03E35;
   }
 
@@ -64,6 +64,8 @@
     margin-bottom: 6px;
     align-items: center;
     color: #C03E35;
+    margin-left: 15px;
+
   }
 
   .sticky-footer {
@@ -73,7 +75,7 @@
     width: 100%;
     background-color:#F2D2CF;
     padding: 1px 0;
-    border-top: 2px solid #C03E35;;
+    border-top: 2px solid #C03E35;
 
   }
 
@@ -95,10 +97,31 @@
   }
 
   .swiper-pagination {
-    position: static !important;
+    color: inherit;
   }
 
   #shrine-member-count {
     text-align: center;
     font-family: body-font;
+  }
+
+  #swiper {
+    height: 420px !important;  /* Adjust to the height you want */
+  }
+
+  .swiper-slide {
+    height: 100%;
+    overflow: hidden;  /* Hide overflow content */
+  }
+
+  .bottom-link {
+    width: 120px;
+    font-size: large;
+    margin-left: 25px;
+  }
+
+  .button-link2 {
+    margin-right: 30px;
+    width: 120px;
+    font-size: large;
   }
