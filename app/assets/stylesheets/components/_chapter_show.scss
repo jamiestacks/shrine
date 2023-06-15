@@ -57,15 +57,18 @@
 
 #story-image {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
   height: 350px;
-  border-radius: .5rem;
   img {
     object-fit: cover;
     width: 100%;
     height: 100%;
+  }
+  #pagnation {
+    margin-top: -25px;
   }
 }
 
