@@ -73,8 +73,8 @@
             <%= f.input :title %>
             <%= f.input :description, label: "Add a short description of this chapter" %>
             <div class="chapter-dates">
-              <%= f.input :date_start, label: "Start Date", as: :string, input_html: { data: { controller: "datepicker" }} %>
-              <%= f.input :date_end, label: "End Date", as: :string, input_html: { data: { controller: "datepicker" } } %>
+              <%= f.input :date_start, label: "Start Date", as: :string, input_html: { data: {controller: "flatpickr", flatpickr_date_value: @dob.to_s }} %>
+              <%= f.input :date_end, label: "End Date", as: :string, input_html: { data: {controller: "flatpickr", flatpickr_dated_value: @dod.to_s }} %>
             </div>
             <%= f.input :photo, label: "Picture to represent this chapter", as: :file %>
             <%= f.submit "Create Chapter", class: "btn btn-modal" %>
