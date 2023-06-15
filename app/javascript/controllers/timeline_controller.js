@@ -18,28 +18,21 @@ export default class extends Controller {
       const cardRect = chapter.getBoundingClientRect();
       const cardCenter = cardRect.top + cardRect.height / 2
 
-      if (cardCenter < 20 && cardCenter > -10) {
-        // console.log(i)
-        // this.chaptersTargets[i].classList.remove("noblur")
-        console.log(this.chaptersTargets[i + 1])
+      if (cardCenter < 40 && cardCenter > -10) {
         this.chaptersTargets[i + 1].classList.add("noblur")
-        // this.chaptersTargets[i + 2].classList.remove("noblur")
       }
 
-
-      if (((e.currentTarget.scrollY + e.currentTarget.innerHeight / 2) - document.scrollingElement.scrollTop)  ) {
-
-      }
     })
   }
 
 
-  // console.dir(document.scrollingElement.scrollTop)
-  // console.log((e.currentTarget.scrollY + e.currentTarget.innerHeight / 2) - document.scrollingElement.scrollTop)
- }
+}
+
+//&& chapter != this.chaptersTargets[0]
 
 
-
+// console.dir(document.scrollingElement.scrollTop)
+// console.log((e.currentTarget.scrollY + e.currentTarget.innerHeight / 2) - document.scrollingElement.scrollTop)
 
 // blur(event) {
 //   let max, min;

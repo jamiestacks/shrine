@@ -9,7 +9,7 @@
   </div>
 
   <div class="messages-words">
-    <p class="timestamp"><%= message.created_at.strftime("%e %b, %H:%M") %></p>
+    <p class="timestamp"><b><%= message.user.first_name %></b>, <%= message.created_at.strftime("%e %b %H:%M") %></p>
     <p class="message-content"><%= message.content %></p>
   </div>
 
