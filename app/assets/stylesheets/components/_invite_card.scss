@@ -12,9 +12,14 @@
 .invites-title {
   text-align: center;
   color: $font;
-  border-style: none none solid none;
-  border-width: thin;
-  border-color: $font;
+  border-bottom: 1px solid #C03E35;
+}
+
+.invite-card {
+  font-family: body-font;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20%;
 }
 
 .invites-mid-container {

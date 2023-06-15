@@ -37,7 +37,7 @@
 
     <div class = "footer-content">
       <div class = "member-count">
-        <h6><%= "#{1 + @sorted_shrine_members.count + @sorted_invited_users.count} members" %></h6>
+        <h1><%= pluralize(1 + @sorted_shrine_members.count + @sorted_invited_users.count, "member") %></h1>
       </div>
 
         <div class = "invitecard-mini row" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
