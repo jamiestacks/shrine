@@ -83,6 +83,7 @@
   position: relative;
   width: 100%;
   margin-bottom: 55px;
+  filter: blur(5px);
 }
 
 .timeline-title {
@@ -136,4 +137,8 @@
   span {
     margin-left: 10px;
   }
+}
+
+.noblur {
+  filter: blur(0px);
 }
