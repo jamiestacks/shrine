@@ -11,7 +11,7 @@
   <div class= "timeline">
     <% @orderedchapters.each do |chapter| %>
       <%= link_to chapter_path(chapter) do %>
-        <div class="timeline-item blur" data-timeline-target="chapters">
+        <div class="timeline-item" data-timeline-target="chapters">
 
           <span class="timeline-title">
             <h3><%= chapter.title %></h3>

@@ -8,36 +8,34 @@ export default class extends Controller {
 
   connect() {
     console.log("connected")
-    this.chaptersTargets[0].classList.remove("blur");
+    this.chaptersTargets[0].classList.add("noblur");
   }
 
 
   blur(e) {
     this.chaptersTargets.forEach((chapter, i) => {
 
-
       const cardRect = chapter.getBoundingClientRect();
       const cardCenter = cardRect.top + cardRect.height / 2
-      // console.log(chapter)
-      console.log(cardCenter);
-      if (cardCenter < 10 && cardCenter > -10) {
+
+      if (cardCenter < 20 && cardCenter > -10) {
         // console.log(i)
-        this.chaptersTargets[i + 1].classList.remove("blur")
+        // this.chaptersTargets[i].classList.remove("noblur")
         console.log(this.chaptersTargets[i + 1])
+        this.chaptersTargets[i + 1].classList.add("noblur")
+        // this.chaptersTargets[i + 2].classList.remove("noblur")
       }
-      // console.log(chapter);
-      // console.dir(chapter);
 
 
-      // console.dir(document.scrollingElement.scrollTop)
-      // console.log((e.currentTarget.scrollY + e.currentTarget.innerHeight / 2) - document.scrollingElement.scrollTop)
       if (((e.currentTarget.scrollY + e.currentTarget.innerHeight / 2) - document.scrollingElement.scrollTop)  ) {
-        // console.log(chapter)
+
       }
     })
   }
 
 
+  // console.dir(document.scrollingElement.scrollTop)
+  // console.log((e.currentTarget.scrollY + e.currentTarget.innerHeight / 2) - document.scrollingElement.scrollTop)
  }
 
 
