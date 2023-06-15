@@ -153,7 +153,7 @@ chapter_1.photo.attach(io: File.open("./app/assets/images/johnmom.jpeg"), filena
 chapter_1.save!
 
 chapter_2 = Chapter.new(
-  title: "Sean's childhood",
+  title: "Sean's child hood",
   date_start: "1935-04-29",
   date_end: "1945-05-06",
   shrine_id: main_shrine.id,
@@ -173,7 +173,7 @@ chapter_3.photo.attach(io: File.open("./app/assets/images/johnnavy.jpg"), filena
 chapter_3.save!
 
 chapter_4 = Chapter.new(
-  title: "Career switches",
+  title: "Career changes",
   date_start: "1948-12-14",
   date_end: "1950-07-19",
   shrine_id: main_shrine.id,
@@ -193,23 +193,23 @@ chapter_5.photo.attach(io: File.open("./app/assets/images/seanconnerytheatre.jpg
 chapter_5.save!
 
 chapter_6 = Chapter.new(
-  title: "Sean's breakthrough as James Bond",
-  date_start: "1962-03-11",
-  date_end: "1967-03-11",
-  shrine_id: main_shrine.id,
-  description: "Connery's breakthrough came in the role of British secret agent James Bond. He was reluctant to commit to a film series, but understood that if the films succeeded, his career would greatly benefit. Between 1962 and 1967, Connery played 007 in Dr. No, From Russia with Love, Goldfinger, Thunderball, and You Only Live Twice, the first five Bond films produced by Eon Productions."
-)
-chapter_6.photo.attach(io: File.open("./app/assets/images/johnbond2.jpeg"), filename: "johnbond2.jpeg")
-chapter_6.save!
-
-chapter_7 = Chapter.new(
   title: "Wedding with Diane",
   date_start: "1962-03-11",
   date_end: "1974-03-11",
   shrine_id: main_shrine.id,
   description: "Connery was married to actress Diane Cilento from 1962 to 1974, though they separated in 1971. They had a son, actor Jason Joseph."
 )
-chapter_7.photo.attach(io: File.open("./app/assets/images/johnfam.jpeg"), filename: "johnfam.jpeg")
+chapter_6.photo.attach(io: File.open("./app/assets/images/johnfam.jpeg"), filename: "johnfam.jpeg")
+chapter_6.save!
+
+chapter_7 = Chapter.new(
+  title: "Sean's break- through as James Bond",
+  date_start: "1962-10-05",
+  date_end: "1967-03-11",
+  shrine_id: main_shrine.id,
+  description: "Connery's breakthrough came in the role of British secret agent James Bond. He was reluctant to commit to a film series, but understood that if the films succeeded, his career would greatly benefit. Between 1962 and 1967, Connery played 007 in Dr. No, From Russia with Love, Goldfinger, Thunderball, and You Only Live Twice, the first five Bond films produced by Eon Productions."
+)
+chapter_7.photo.attach(io: File.open("./app/assets/images/johnbond2.jpeg"), filename: "johnbond2.jpeg")
 chapter_7.save!
 
 chapter_8 = Chapter.new(
@@ -223,7 +223,7 @@ chapter_8.photo.attach(io: File.open("./app/assets/images/johnwife2.png"), filen
 chapter_8.save!
 
 chapter_9 = Chapter.new(
-  title: "Sean's retirement",
+  title: "Sean's retire- ment",
   date_start: "2006-04-11",
   date_end: "2010-03-11",
   shrine_id: main_shrine.id,
@@ -237,7 +237,7 @@ chapter_10 = Chapter.new(
   date_start: "2020-10-31",
   date_end: "2020-10-31",
   shrine_id: main_shrine.id,
-  description: "Sean had dementia before he passed away. He passed away in his sleep on 31 October 2020, aged 90, at his home in the Lyford Cay community of Nassau in the Bahamas."
+  description: "Sean's dementia worsened in his last years, and he passed away in his sleep on 31 October 2020, aged 90, at his home in the Lyford Cay community of Nassau in the Bahamas."
 )
 chapter_10.photo.attach(io: File.open("./app/assets/images/johnyoung2.jpg"), filename: "johnyoung2.jpg")
 chapter_10.save!
