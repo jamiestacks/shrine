@@ -1,6 +1,12 @@
 <div class="chatroom-message" id="message-<%= message.id %>">
 
-    <div class="messages-avatar" style="background: url('<%= cl_image_path message.user.photo.key %>'); background-size: cover;"></div>
+  <div class="messages-avatar">
+    <% if message.user.photo.attached? %>
+      <%= cl_image_tag message.user.photo.key %>
+    <% else %>
+      <%= image_tag "default" %>
+    <% end %>
+  </div>
 
   <div class="messages-words">
     <p class="timestamp"><b><%= message.user.first_name %></b>, <%= message.created_at.strftime("%e %b %H:%M") %></p>
