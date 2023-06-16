@@ -49,7 +49,7 @@ user3.photo.attach(io: File.open("./app/assets/images/user3.jpg"), filename: "us
 user3.save
 
 user4 = User.create(
-  first_name: "Alexander",
+  first_name: "Alex",
   family_name: "Connery",
   email: "mynameis4@hotmail.com",
   password: "123456"
