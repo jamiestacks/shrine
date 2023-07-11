@@ -1,7 +1,71 @@
+<div class = "landing-page-container">
 
+  <header class = "landing-page-header">
+
+  <div class = "header-inner">
+
+    <div class = "header-logo">
+      <%= image_tag "logo.png", class: "header-logo"%>
+    </div>
+
+    <div class = "header-logins">
+      <%= link_to "Login", new_user_session_path, class: "mybutton button-link" %>
+    </div>
+
+  </div>
+
+  </header>
+
+  <div class = "main-landing-card">
+
+    <div class = "landing-motto-container">
+
+      <h1>Grieving is hard. </h1>
+      <br>
+      <h1>With Shrine, it's easier.</h1>
+
+      <div class = "login-signup">
+        <%= link_to "Sign up", new_user_registration_path, class: "mybutton button-link" %>
+      </div>
+
+    </div>
+
+    <div class = "text-container">
+    </div>
+
+  </div>
+
+  <div class = "landing-card-features">
+
+    <div class = "feature">
+    <%= image_tag "my_shrines.jpg", class: "feature-img"%>
+
+    </div>
+
+    <div class = "feature">
+    <%= image_tag "timeline.jpg", class: "feature-img"%>
+
+    </div>
+
+    <div class = "feature">
+    <%= image_tag "members.jpg", class: "feature-img"%>
+
+    </div>
+
+    <div class = "feature">
+    <%= image_tag "chat.jpg", class: "feature-img"%>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<%#
 <div class="d-flex flex-column align-items-center body-background" style="min-height: calc(100vh - 70px);">
   <div class="cool-box2 d-flex flex-column align-items-center">
-    <%= image_tag "logo.png", class: "cool-logo"%>
+    <%= image_tag "logo.png", class: "cool-logo"
     <div>
       <h1 class="cool-title">Shrine</h1>
     </div>
@@ -14,15 +78,16 @@
 
   <div class="d-flex align-items-center">
 
-    <%= link_to "Login", new_user_session_path, class: "mybutton button-link" %>
+    <%= link_to "Login", new_user_session_path, class: "mybutton button-link"
   </div>
 
 
   <div class="d-flex">
 
-    <%= link_to "Sign up", new_user_registration_path, class: "mybutton button-link" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "mybutton button-link"
   </div>
 
     <div class="d-flex home-footer"><p>Shrine connects families and preserves memories. Keep those who meant so much to you alive by celebrating them together. </p>
 </div>
 </div>
+%>
