@@ -1,20 +1,22 @@
-<div class = "landing-page-container">
 
-  <header class = "landing-page-header">
 
-  <div class = "header-inner">
+<header class = "landing-page-header">
 
-    <div class = "header-logo">
-      <%= image_tag "logo.png", class: "header-logo"%>
-    </div>
+<div class = "header-inner">
 
-    <div class = "header-logins">
-      <%= link_to "Login", new_user_session_path, class: "mybutton button-link" %>
-    </div>
-
+  <div class = "header-logo">
+    <%= image_tag "logo.png", class: "header-logo"%>
   </div>
 
-  </header>
+  <div class = "header-logins">
+    <%= link_to "Login", new_user_session_path, class: "mybutton button-link" %>
+  </div>
+
+</div>
+
+</header>
+
+<div class = "landing-page-container body-background">
 
   <div class = "main-landing-card">
 
@@ -38,23 +40,47 @@
   <div class = "landing-card-features">
 
     <div class = "feature">
-    <%= image_tag "my_shrines.jpg", class: "feature-img"%>
-
+      <h3>Create Shrines for your Loved Ones</h3>
+      <div class = "feature-card">
+        <%= image_tag "my_shrines.jpg", class: "feature-img"%>
+        <div class = "vl"></div>
+        <div class = "feature-text">
+          <p> </p>
+        </div>
+      </div>
     </div>
 
     <div class = "feature">
-    <%= image_tag "timeline.jpg", class: "feature-img"%>
-
+      <h3>Invite your Friends and Family</h3>
+      <div class = "feature-card">
+        <%= image_tag "members.jpg", class: "feature-img"%>
+        <div class = "vl"></div>
+        <div class = "feature-text">
+          <p> </p>
+        </div>
+      </div>
     </div>
 
     <div class = "feature">
-    <%= image_tag "members.jpg", class: "feature-img"%>
-
+      <h3>Create a dynamic timeline of your loved one's life</h3>
+      <div class = "feature-card">
+        <%= image_tag "timeline.jpg", class: "feature-img"%>
+        <div class = "vl"></div>
+        <div class = "feature-text">
+          <p> </p>
+        </div>
+      </div>
     </div>
 
     <div class = "feature">
-    <%= image_tag "chat.jpg", class: "feature-img"%>
-
+      <h3>Chat live about memories and stories</h3>
+      <div class = "feature-card">
+        <%= image_tag "chat.jpg", class: "feature-img"%>
+        <div class = "vl"></div>
+        <div class = "feature-text">
+          <p> </p>
+        </div>
+      </div>
     </div>
 
   </div>

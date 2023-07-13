@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .body-background {
-  background: linear-gradient(180deg, #fcf3ee 16.67%, #ee9a93 100%);
+  background: linear-gradient(240deg, #fcf3ee 40%, #ee9a93 100%);
 }
 
 .home-footer {
@@ -15,7 +15,7 @@
 }
 
 .landing-page-container {
-  background: #f7e0de;
+  background: linear-gradient(255deg, #fcf3ee 25%, #ee9a93 100%);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -23,36 +23,30 @@
 }
 
 .landing-page-header {
-  position: relative;
-  padding: 24px 0;
+  padding: 2vh 3vw;
   height: 9vh;
   width: 100%;
   box-shadow: 5px 2px 10px 2px #888888;
-  position: sticky;
+  position: fixed;
   top: 0;
+  z-index: 5;
+  background-color: #fcf3ee !important;
 }
 
 .header-logo {
   width: 5vh;
-  margin-left: 15px;
-  margin-top: 6px;
+  top: 0.8vh;
 }
 
 .header-logins {
   position: absolute;
-  right: 20px;
-  top: 20px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  right: 3vw;
+  top: 0.55vh;
   .mybutton {
     height: 4.5vh;
     width: 18vh;
+    font-size: 1.5vh;
   }
-}
-
-.button-link {
-  float: left;
 }
 
 .main-landing-card {
@@ -62,14 +56,17 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  border-bottom: 1px solid #c03e35;
+  margin-top: 9vh;
+  margin-bottom: 5%;
+  flex-direction: column;
   h1 {
-    font-size: 4em;
+    font-size: 3.5vmax;
     font-weight: 700;
     color: #200b09;
-    margin-bottom: 10px;
   }
   h2 {
-    font-size: 2em;
+    font-size: 2vw;
     font-weight: 400;
     color: #200b09;
     margin: 0;
@@ -87,8 +84,7 @@
 }
 
 .landing-motto-container {
-  width: 50%;
-  align-items: center;
+  // width: 60%;
 }
 
 .login-signup {
@@ -96,40 +92,54 @@
   gap: 25px;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 3vh;
   .mybutton {
     background-color: #c03e35 !important;
     color: #ede9e8 !important;
+    width: 25vw;
+    height: 5vh;
+    font-size: 1.4vh;
   }
 }
 
 .landing-card-features {
   display: flex;
-  justify-content: space-around;
-  align-items: stretch;
+  flex-direction: column;
+  align-items: center;
   gap: 16px;
 }
 
 .feature {
-  display: block;
-  top: 0px;
+  justify-content: center;
+  text-align: center;
+  h3 {
+    font-size: 1.8vmax;
+  }
+}
+
+.feature-card {
+  display: flex;
   position: relative;
-  width: 30vh;
-  height: 50vh;
-  background-color: #f2f8f9;
-  border-radius: 4px;
-  padding: 32px 24px;
-  margin: 12px;
-  text-decoration: none;
-  z-index: 0;
-  overflow: hidden;
-  border: 1px solid #f2f8f9;
+  width: 75%;
+  height: 40vmax;
+  align-items: center;
 }
 
 .feature-img {
   position: absolute;
-  top: 0;
-  width: 20vh;
-  height: 30vh;
-  object-fit: cover;
+  width: 16vmax;
+  height: 38vmax;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.vl {
+  position: absolute;
+  justify-content: center;
+  height: 85%;
+  border-left: 1px solid #c03e35;
+  margin-left: -1px;
+}
+
+.feature-text {
 }
