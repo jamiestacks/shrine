@@ -3,17 +3,6 @@
   background: linear-gradient(240deg, #fcf3ee 40%, #ee9a93 100%);
 }
 
-.home-footer {
-  width: 100vmin;
-  height: 100vmin;
-  margin-top: 4em;
-  padding: 1vmin 1vmin 1vmin 1vmin;
-  p {
-    text-align: justify;
-    margin: 4vmin 2vmin 1vmin 2vmin;
-  }
-}
-
 .landing-page-container {
   background: linear-gradient(255deg, #fcf3ee 25%, #ee9a93 100%);
   overflow: hidden;
@@ -52,11 +41,11 @@
 .main-landing-card {
   display: flex;
   width: 100%;
-  height: 60vh;
+  height: 65vh;
   justify-content: center;
   align-items: center;
   position: relative;
-  border-bottom: 1px solid #c03e35;
+  border-bottom: 3px solid #c03e35;
   margin-top: 9vh;
   margin-bottom: 5%;
   flex-direction: column;
@@ -123,10 +112,10 @@
   width: 75%;
   height: 40vmax;
   align-items: center;
+  flex-direction: row;
 }
 
 .feature-img {
-  position: absolute;
   width: 16vmax;
   height: 38vmax;
   border-radius: 10px;
@@ -137,9 +126,40 @@
   position: absolute;
   justify-content: center;
   height: 85%;
-  border-left: 1px solid #c03e35;
-  margin-left: -1px;
+  border: 1px solid #c03e35;
 }
 
 .feature-text {
+  text-align: center;
+  font-size: 0.5vmax;
+  color: #200b09;
+  width: 50%;
+  p {
+    font-size: 1.5vmax;
+  }
+}
+
+.left {
+  justify-self: start;
+}
+
+.middle {
+  justify-self: center;
+}
+
+.right {
+  justify-self: end;
+}
+
+.home-footer {
+  background: $brand;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4vh;
+  padding: 0px 5vw;
+  color: #fcf3ee;
+  p {
+    font-size: 1vmax;
+  }
 }
