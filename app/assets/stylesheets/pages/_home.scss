@@ -1,31 +1,209 @@
 // Specific CSS for your home-page
-.cool-box2{
-  padding: 10vmin;
-  .cool-logo {
-    height: 150px;
-    width: 150px;
-    margin-left: 20px;
-    margin-top: 10px;
-  }
-  h1{
-    margin-top: 15vmin;
-  }
-  h3{
-    margin-top: 2vmin;
+.body-background {
+  background: linear-gradient(240deg, #fcf3ee 40%, #ee9a93 100%);
+}
+
+.landing-page-container {
+  background: linear-gradient(255deg, #fcf3ee 25%, #ee9a93 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.landing-page-header {
+  padding: 2vh 3vw;
+  height: 9vh;
+  width: 100%;
+  box-shadow: 5px 2px 10px 2px #888888;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  background-color: #fcf3ee !important;
+}
+
+.header-logo {
+  width: 5vh;
+  top: 0.8vh;
+}
+
+.header-logins {
+  position: absolute;
+  right: 3vw;
+  top: 0.55vh;
+  .mybutton {
+    height: 4.5vh;
+    width: 18vh;
+    font-size: 1.5vh;
   }
 }
 
-.body-background{
-  background: linear-gradient(180deg, #FCF3EE 16.67%, #EE9A93 100%);
+.main-landing-card {
+  display: flex;
+  width: 100%;
+  height: 65vh;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 0.2vh solid #c03e35;
+  margin-top: 9vh;
+  margin-bottom: 5%;
+  flex-direction: column;
+  h1 {
+    font-size: 3.5vmax;
+    font-weight: 700;
+    color: #200b09;
+  }
+  h2 {
+    font-size: 2vw;
+    font-weight: 400;
+    color: #200b09;
+    margin: 0;
+  }
 }
 
-.home-footer{
-  width: 100vmin;
-  height:  100vmin;
-  margin-top: 4em;
-  padding:1vmin 1vmin 1vmin 1vmin;
-  p{
-    text-align: justify;
-    margin: 4vmin 2vmin 1vmin 2vmin;
+.text-container {
+  margin-left: 8%;
+  border-left: 1px solid #200b09;
+}
+
+.main-logo {
+  height: 25vh;
+  width: 25vh;
+}
+
+.landing-motto-container {
+  // width: 60%;
+}
+
+.login-signup {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3vh;
+  .mybutton {
+    background-color: #c03e35 !important;
+    color: #ede9e8 !important;
+    width: 25vw;
+    height: 5vh;
+    font-size: 1.4vh;
+  }
+}
+
+.landing-card-features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 2vh;
+}
+
+.feature {
+  text-align: center;
+  width: 85%;
+  h3 {
+    font-size: 2.2vmax;
+    display: inline-block;
+    border-bottom: 0.15vh solid #c03e35;
+  }
+}
+
+.feature-card {
+  display: flex;
+  height: 40vmax;
+  align-items: center;
+  justify-content: center;
+  margin: 4vh 0vw;
+}
+
+.feature-img-container {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.feature-img {
+  width: 20vmax;
+  height: 38vmax;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.vl-container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.vl {
+  position: absolute;
+  justify-content: center;
+  height: 30vmax;
+  border-left: 0.1vw solid #c03e35;
+}
+
+.feature-text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.5vmax;
+  color: #200b09;
+  width: 50%;
+  p {
+    font-size: 1.5vmax;
+  }
+}
+
+.left {
+  padding-right: 3vw;
+}
+
+.right {
+  padding-left: 3vw;
+}
+
+.home-footer {
+  background: $secondary;
+  height: 6.5vmax;
+  color: #fcf3ee;
+}
+
+.home-footer-text-intro {
+  color: #fcf3ee;
+  display: flex;
+  font-size: 1.2vmax;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1vmax 0vmax;
+}
+
+.home-footer-content {
+  width: 100%;
+  color: #fcf3ee;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-author-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5vmin;
+  width: 25%;
+}
+
+.home-footer-name {
+  font-size: 1.2vmax;
+  text-align: center;
+}
+
+.home-footer-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vmax;
+  i {
+    padding: 0vmax 1max;
   }
 }
