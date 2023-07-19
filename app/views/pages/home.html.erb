@@ -42,21 +42,29 @@
     <div class = "feature">
       <h3>Create Shrines for your Loved Ones</h3>
       <div class = "feature-card">
-        <%= image_tag "my_shrines.jpg", class: "feature-img left"%>
-        <div class = "vl middle"></div>
-        <div class = "feature-text right">
-          <p> Dedicate a Shrine to your loved ones, and create a home for their stories and experiences. </p>
+        <div class = "feature-img-container left">
+          <%= image_tag "my_shrines.jpg", class: "feature-img"%>
+        </div>
+        <div class = "vl-container">
+          <div class = "vl"></div>
+        </div>
+        <div class = "feature-text right left">
+          <p> Dedicate an everlasting space to the ones who touched your life, and create a home for their memories, stories and experiences. </p>
         </div>
       </div>
     </div>
 
     <div class = "feature">
-      <h3>Invite your Friends and Family and build your community</h3>
+      <h3>Invite your family and friends and build your community</h3>
       <div class = "feature-card">
-        <%= image_tag "members.jpg", class: "feature-img right"%>
-        <div class = "vl middle"></div>
-        <div class = "feature-text left">
-          <p> Bring people together through your shared memories, and expand the community of contributors to your Loved One's Shrine. </p>
+        <div class = "feature-text left right">
+          <p> Bring people together around your Shrine, and invite others to share their memories with your ever-growing community. </p>
+        </div>
+        <div class = "vl-container">
+          <div class = "vl"></div>
+        </div>
+        <div class = "feature-img-container right">
+          <%= image_tag "members.jpg", class: "feature-img"%>
         </div>
       </div>
     </div>
@@ -64,32 +72,44 @@
     <div class = "feature">
       <h3>Build a vivid timeline of their life</h3>
       <div class = "feature-card">
-        <%= image_tag "timeline.jpg", class: "feature-img left"%>
-        <div class = "vl middle"></div>
-        <div class = "feature-text right">
-          <p> Create Chapters of their life and help your community discover more about their journey</p>
+        <div class = "feature-img-container left">
+          <%= image_tag "timeline.jpg", class: "feature-img"%>
+        </div>
+        <div class = "vl-container">
+          <div class = "vl"></div>
+        </div>
+        <div class = "feature-text right left">
+          <p> Tell their tale as you create and curate chapters of their life, preserving their achievements for everyone to see.</p>
         </div>
       </div>
     </div>
 
     <div class = "feature">
-      <h3>Share your Stories with your community</h3>
+      <h3>Share the stories that made them special</h3>
       <div class = "feature-card">
-        <%= image_tag "chapter.jpg", class: "feature-img right"%>
-        <div class = "vl middle"></div>
-        <div class = "feature-text left">
-          <p> Create Chapters of their life and help your community discover more about their journey</p>
+        <div class = "feature-text right left">
+          <p> Fill out their chapters with your own memories and recollections, and share the stories that you wish everyone else already knew.</p>
+        </div>
+        <div class = "vl-container">
+          <div class = "vl"></div>
+        </div>
+        <div class = "feature-img-container right">
+          <%= image_tag "chapter.jpg", class: "feature-img"%>
         </div>
       </div>
     </div>
 
     <div class = "feature">
-      <h3>Chat with your community</h3>
+      <h3>Speak with the people they brought together</h3>
       <div class = "feature-card">
-        <%= image_tag "chat.jpg", class: "feature-img left"%>
-        <div class = "vl middle"></div>
-        <div class = "feature-text right">
-          <p> Chat with your Shrine's community, and keep their spirit alive through the people they brought together. </p>
+        <div class = "feature-img-container left">
+          <%= image_tag "chat.jpg", class: "feature-img"%>
+        </div>
+        <div class = "vl-container">
+          <div class = "vl"></div>
+        </div>
+        <div class = "feature-text right left">
+          <p> Chat with members of your Shrine, and keep their spirit alive amongst the community they touched. </p>
         </div>
       </div>
     </div>
@@ -99,14 +119,65 @@
 </div>
 
 <div class = "home-footer">
-
-  <div class = "footer-icons">
+  <div class = "home-footer-text-intro">
+    Shrine is shaped with care by:
   </div>
+  <div class = "home-footer-content">
+    <div class = "footer-author-details">
+      <div class = "home-footer-name">
+        Hasna Begum
+      </div>
+      <div class = "home-footer-icons">
+        <a href = "https://github.com/hb-23">
+          <i class = "fab fa-github"> </i>
+        </a>
+        <a href = "https://uk.linkedin.com/in/hasna-begum-77314414a">
+          <i class = "fab fa-linkedin"> </i>
+        </a>
+      </div>
+    </div>
 
-  <div class = "footer-note">
-  <p> Shrine was created by Eduardo Guerrero, Hasna Begum, Jamie Graham and Max Martinez. </p>
-  </div>
+    <div class = "footer-author-details">
+      <div class = "home-footer-name">
+        Jamie Graham
+      </div>
+      <div class = "home-footer-icons">
+        <a href = "https://github.com/jamiestacks">
+          <i class = "fab fa-github"> </i>
+        </a>
+        <a href = "https://uk.linkedin.com/in/jamie-graham-27229716a">
+          <i class = "fab fa-linkedin"> </i>
+        </a>
+      </div>
+    </div>
 
+    <div class = "footer-author-details">
+      <div class = "home-footer-name">
+        Eduardo Guerrero
+      </div>
+      <div class = "home-footer-icons">
+        <a href = "https://github.com/Educat83">
+          <i class = "fab fa-github"> </i>
+        </a>
+        <a href = "https://uk.linkedin.com/in/eduardo-guerrero-55b82310b">
+          <i class = "fab fa-linkedin"> </i>
+        </a>
+      </div>
+    </div>
+
+    <div class = "footer-author-details">
+      <div class = "home-footer-name">
+        Max Martinez
+      </div>
+      <div class = "home-footer-icons">
+        <a href = "https://github.com/maximartinez4">
+          <i class = "fab fa-github"> </i>
+        </a>
+        <a href = "https://uk.linkedin.com/in/maximartinez">
+          <i class = "fab fa-linkedin"> </i>
+        </a>
+      </div>
+    </div>
 </div>
 
 

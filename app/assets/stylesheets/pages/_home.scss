@@ -45,7 +45,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  border-bottom: 3px solid #c03e35;
+  border-bottom: 0.2vh solid #c03e35;
   margin-top: 9vh;
   margin-bottom: 5%;
   flex-direction: column;
@@ -96,40 +96,57 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  margin-bottom: 2vh;
 }
 
 .feature {
-  justify-content: center;
   text-align: center;
+  width: 85%;
   h3 {
-    font-size: 1.8vmax;
+    font-size: 2.2vmax;
+    display: inline-block;
+    border-bottom: 0.15vh solid #c03e35;
   }
 }
 
 .feature-card {
   display: flex;
-  position: relative;
-  width: 75%;
   height: 40vmax;
   align-items: center;
-  flex-direction: row;
+  justify-content: center;
+  margin: 4vh 0vw;
+}
+
+.feature-img-container {
+  display: flex;
+  justify-content: center;
+  width: 50%;
 }
 
 .feature-img {
-  width: 16vmax;
+  width: 20vmax;
   height: 38vmax;
   border-radius: 10px;
   overflow: hidden;
 }
 
+.vl-container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .vl {
   position: absolute;
   justify-content: center;
-  height: 85%;
-  border: 1px solid #c03e35;
+  height: 30vmax;
+  border-left: 0.1vw solid #c03e35;
 }
 
 .feature-text {
+  display: flex;
+  justify-content: center;
   text-align: center;
   font-size: 0.5vmax;
   color: #200b09;
@@ -140,26 +157,53 @@
 }
 
 .left {
-  justify-self: start;
-}
-
-.middle {
-  justify-self: center;
+  padding-right: 3vw;
 }
 
 .right {
-  justify-self: end;
+  padding-left: 3vw;
 }
 
 .home-footer {
-  background: $brand;
+  background: $secondary;
+  height: 6.5vmax;
+  color: #fcf3ee;
+}
+
+.home-footer-text-intro {
+  color: #fcf3ee;
+  display: flex;
+  font-size: 1.2vmax;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1vmax 0vmax;
+}
+
+.home-footer-content {
+  width: 100%;
+  color: #fcf3ee;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-author-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5vmin;
+  width: 25%;
+}
+
+.home-footer-name {
+  font-size: 1.2vmax;
+  text-align: center;
+}
+
+.home-footer-icons {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 4vh;
-  padding: 0px 5vw;
-  color: #fcf3ee;
-  p {
-    font-size: 1vmax;
+  justify-content: center;
+  gap: 1vmax;
+  i {
+    padding: 0vmax 1max;
   }
 }
